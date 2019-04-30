@@ -14,9 +14,9 @@
     <tr>
       <th><%= form.label :released_at %></th>
       <td><%= form.datetime_select :released_at, {
-            start_year: Time.current,
-            end_year: Time.current + 1,
-            default: Time.current
+            start_year: Time.current.year,
+            end_year: Time.current.year + 1,
+            default: Time.zone.today
           }
             %></td>
     </tr>
