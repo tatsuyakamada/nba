@@ -13,12 +13,15 @@
     </tr>
     <tr>
       <th><%= form.label :released_at %></th>
-      <td><%= form.datetime_select :released_at, {
-            start_year: Time.current,
-            end_year: Time.current + 1,
-            default: Time.current
-          }
-            %></td>
+      <td><%= raw sprintf(
+              form.date_select(
+              :released_at,
+              use_month_numbers: true,
+              start_year: Time.current.year,
+              end_year: Time.current.year + 1,
+              default: Time.zone.today,
+              date_separator: '%s'),
+            '年 ', '月 ') + '日' %>
     </tr>
   </table>
 <% end %>
