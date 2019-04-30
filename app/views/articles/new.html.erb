@@ -1,0 +1,24 @@
+<% @page_title = "新規投稿" %>
+<h1><%= @page_title %></h1>
+
+<%= form_for @article do |form| %>
+  <table id="form">
+    <tr>
+      <th><%= form.label :title %></th>
+      <td><%= form.text_field :title %></td>
+    </tr>
+    <tr>
+      <th><%= form.label :body %></th>
+      <td><%= form.text_area :body %></td>
+    </tr>
+    <tr>
+      <th><%= form.label :released_at %></th>
+      <td><%= form.datetime_select :released_at, {
+            start_year: Time.current,
+            end_year: Time.current + 1,
+            default: Time.current
+          }
+            %></td>
+    </tr>
+  </table>
+<% end %>

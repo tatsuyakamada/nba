@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    attributes:
+      article:
+        article: "記事"
+        title: "タイトル"
+        body: "本文"
+        released_at: "掲載開始日"
+        expired_at: "掲載終了日"
+        member_only: "会員公開"
