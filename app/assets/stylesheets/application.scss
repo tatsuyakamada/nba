@@ -1,0 +1,22 @@
+@import "./articles";
+
+body {
+font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic';
+}
+
+header {
+  height: 50px;
+}
+
+.header {
+  font-size: 16px;
+  font-weight: bold;
+  font-family: arial;
+  padding: 12px;
+  list-style: none;
+}
+
+.header li {
+  float: left;
+  margin-left: 10px;
+}
