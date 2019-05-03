@@ -27,7 +27,12 @@ class MembersController < ApplicationController
   end
 
   def update
-
+    @member = Member.find(params[:id])
+    if @member.save
+      redirect_to @member
+    else
+      render "edit"
+    end
   end
 
   def destroy
