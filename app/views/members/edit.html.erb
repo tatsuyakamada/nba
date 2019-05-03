@@ -35,7 +35,7 @@
     <td><%= form.check_box :administrator, { :checked => true } %></td>
   </tr>
   <tr>
-    <th><%= form.submit "更新" %></th>
+    <th><%= form.submit "更新", { method: :post}  %></th>
   </tr>
 </table>
 <% end %>
