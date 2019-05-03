@@ -1,0 +1,41 @@
+<% @page_title = "会員登録" %>
+<h1><%= @page_title %></h1>
+
+<%= form_for @member do |form| %>
+<table>
+  <tr>
+    <th>お名前</th>
+    <td><%= form.label :last_name %><%= form.text_field :last_name %></td>
+    <td><%= form.label :first_name %><%= form.text_field :first_name %></td>
+  </tr>
+  <tr>
+    <th>フリガナ</th>
+    <td><%= form.label :last_name_call %><%= form.text_field :last_name_call %></td>
+    <td><%= form.label :first_name_call %><%= form.text_field :first_name_call %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :email %></th>
+    <td><%= form.text_field :email %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :birthday %></th>
+    <td><%= form.date_select :birthday, {
+          start_year: 1900,
+          end_year: Time.current.year,
+          default: Time.zone.today - 30.year
+        }
+          %></td>
+  </tr>
+  <tr>
+  <th><%= form.label :sex %></th>
+  <td><%= form.radio_button :sex, 0 %>男<%= form.radio_button :sex, 1 %>女</td>
+  </tr>
+  <tr>
+    <th><%= form.label :administrator %></th>
+    <td><%= form.check_box :administrator, { :checked => true } %></td>
+  </tr>
+  <tr>
+    <th><%= form.submit "新規登録" %></th>
+  </tr>
+</table>
+<% end %>

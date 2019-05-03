@@ -1,0 +1,24 @@
+<% @page_title = "記事編集" %>
+<h1><%= @page_title %></h1>
+
+<%= form_for @article do |form| %>
+<table>
+<tr>
+  <th><%= form.label :title %></th>
+  <td><%= form.text_field :title %></td>
+</tr>
+<tr>
+  <th><%= form.label :body %></th>
+  <td><%= form.text_area :body %></td>
+</tr>
+<tr>
+  <th><%= form.label :released_at %></th>
+  <td><%= form.datetime_select :released_at %></td>
+</tr>
+<tr>
+  <th><%= form.label :expired_at %></th>
+  <td><%= form.datetime_select :expired_at %></td>
+</tr>
+</table>
+<div><%= form.submit "更新", { method: :post} %></div>
+<% end %>

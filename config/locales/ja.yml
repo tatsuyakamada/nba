@@ -8,6 +8,15 @@ ja:
         released_at: "掲載開始日"
         expired_at: "掲載終了日"
         member_only: "会員公開"
+      member:
+        last_name: "姓"
+        first_name: "名"
+        last_name_call: "セイ"
+        first_name_call: "メイ"
+        email: "メールアドレス"
+        birthday: "誕生日"
+        sex: "性別"
+        administrator: "管理者"
   date:
     abbr_day_names:
     - 日

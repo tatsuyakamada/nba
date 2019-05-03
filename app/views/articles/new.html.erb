@@ -13,15 +13,28 @@
     </tr>
     <tr>
       <th><%= form.label :released_at %></th>
-      <td><%= raw sprintf(
-              form.date_select(
-              :released_at,
-              use_month_numbers: true,
-              start_year: Time.current.year,
-              end_year: Time.current.year + 1,
-              default: Time.zone.today,
-              date_separator: '%s'),
-            '年 ', '月 ') + '日' %>
+      <td><%= form.datetime_select :released_at, {
+            start_year: Time.current.year,
+            end_year: Time.current.year + 1,
+            default: Time.zone.today
+          }
+            %></td>
+    </tr>
+    <tr>
+      <th><%= form.label :expired_at %></th>
+      <td><%= form.datetime_select :expired_at, {
+            start_year: Time.current.year,
+            end_year: Time.current.year + 1,
+            default: Time.zone.today + 1.month
+          }
+            %></td>
+    </tr>
+    <tr>
+      <th><%= form.label :member_only %></th>
+      <td><%= form.check_box :member_only, { :checked => true } %></td>
+    </tr>
+    <tr>
+      <th><%= form.submit "投稿" %></th>
     </tr>
   </table>
 <% end %>
