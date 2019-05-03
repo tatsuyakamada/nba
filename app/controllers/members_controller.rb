@@ -28,6 +28,7 @@ class MembersController < ApplicationController
 
   def update
     @member = Member.find(params[:id])
+    @member.update(member_params)
     if @member.save
       redirect_to @member
     else
