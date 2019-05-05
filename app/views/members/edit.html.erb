@@ -34,8 +34,7 @@
     <th><%= form.label :administrator %></th>
     <td><%= form.check_box :administrator, { :checked => true } %></td>
   </tr>
-  <tr>
-    <th><%= form.submit "更新", { method: :post}  %></th>
-  </tr>
 </table>
+<button><%= form.submit "更新", { method: :post}  %></button>
+<button><%= link_to "削除", @member, method: :delete, data: { confirm: "削除しますか?"} %></button>
 <% end %>

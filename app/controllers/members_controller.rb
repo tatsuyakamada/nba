@@ -37,11 +37,18 @@ class MembersController < ApplicationController
   end
 
   def destroy
-
+    @member = Member.find(params[:id])
+    if @member.destroy
+      flash[:notice] = "削除しました。"
+      redirect_to :members
+    else
+      render "edit"
+    end
   end
 
   private def member_params
     params.require(:member).permit(
+      :profile_image,
       :last_name,
       :first_name,
       :last_name_call,
@@ -49,7 +56,9 @@ class MembersController < ApplicationController
       :email,
       :birthday,
       :sex,
-      :administrator
+      :administrator,
+      :password,
+      :password_confirmation
       )
   end
 end

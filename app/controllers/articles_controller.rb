@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
 
   #投稿一覧
   def index
-    @articles = Article.all.order(created_at: :desc)
+    @articles = Article.open_article
   end
 
   #新規登録

@@ -10,13 +10,17 @@
   </head>
   <header>
     <div class="header">
-      <li><%= link_to "ニュース", :articles %></li>
-      <li><%= link_to "ブログ", "#" %></li>
-      <li><%= link_to "会員一覧", :members %></li>
+        <li><%= link_to "ニュース", :articles %></li>
+        <li><%= link_to "ブログ", "#" %></li>
+        <li><%= link_to "会員一覧", :members %></li>
+        <li><%= link_to "ログイン", "/login" %></li>
     </div>
   </header>
 
   <body>
+    <% if flash[:notice] %>
+      <%= flash[:notice] %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
