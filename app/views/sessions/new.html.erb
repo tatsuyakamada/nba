@@ -1,14 +1,13 @@
 <% @page_title = "ログイン" %>
 <h1><%= @page_title %></h1>
 
-
 <div>
   <div>
     <%= form_for(:session, url: login_path) do |form| %>
     <%= form.label :email %>
     <%= form.email_field :email %>
     <%= form.label :password %>
-    <%= form.password_field :pasword %>
+    <%= form.password_field :password %>
     <%= form.submit "Login" %>
     <% end %>
   </div>

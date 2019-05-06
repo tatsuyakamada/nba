@@ -13,6 +13,7 @@ class SessionsController < ApplicationController
   end
 
   def logout
-
+    log_out
+    redirect_to login_path
   end
 end

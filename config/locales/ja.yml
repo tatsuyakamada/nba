@@ -20,6 +20,9 @@ ja:
         password: "パスワード"
         password_confirmation: "パスワード（確認）"
         administrator: "管理者"
+      session:
+        email: "メールアドレス"
+        password: "パスワード"
   date:
     abbr_day_names:
     - 日
