@@ -33,7 +33,7 @@ class ArticlesController < ApplicationController
     if @article.save
       redirect_to @article
     else
-      redirect_to "edit"
+      render "edit"
     end
   end
 

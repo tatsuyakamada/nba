@@ -23,6 +23,12 @@ ja:
       session:
         email: "メールアドレス"
         password: "パスワード"
+    errors:
+      messages:
+        blank: "が空白です"
+        too_short: "が短すぎます。"
+        too_long: "が長すぎます。"
+        confirmation: "パスワードと一致しません。"
   date:
     abbr_day_names:
     - 日
