@@ -64,5 +64,8 @@ class ArticlesController < ApplicationController
     @member.administrator == true
   end
 
+  def full_name
+    "123"
+  end
 
 end

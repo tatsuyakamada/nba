@@ -62,4 +62,8 @@ class MembersController < ApplicationController
       )
   end
 
+  def full_name
+    "123"
+  end
+
 end

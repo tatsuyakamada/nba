@@ -13,4 +13,11 @@ class Member < ApplicationRecord
       self.password == self.password_confirmation
     end
 
+  def full_name
+    last_name + " " + first_name
+  end
+
+  def full_name_call
+    last_name_call + " " +first_name_call
+  end
 end
