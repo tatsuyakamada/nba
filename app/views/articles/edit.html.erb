@@ -30,5 +30,7 @@
   <td><%= form.datetime_select :expired_at %></td>
 </tr>
 </table>
+
 <div><%= form.submit "更新", { method: :post} %></div>
+<%= link_to "削除", @article, method: :delete, data: { confirm: "削除しますか?"} %>
 <% end %>

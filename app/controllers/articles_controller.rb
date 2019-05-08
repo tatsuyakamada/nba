@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  before_action :current_member
 
   #投稿一覧
   def index
@@ -25,12 +26,14 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @member = Member.find_by(id: @article.member_id)
   end
 
   def update
     @article = Article.find(params[:id])
     @article.update(article_params)
     if @article.save
+      flash[:notice] = "更新しました。"
       redirect_to @article
     else
       render "edit"
@@ -38,7 +41,12 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-
+    @article = Article.find(params[:id])
+    if @article.destroy
+      redirect_to :articles
+    else
+      render "edit"
+    end
   end
 
   private def article_params
@@ -47,8 +55,13 @@ class ArticlesController < ApplicationController
       :body,
       :released_at,
       :expired_at,
-      :member_only
+      :member_only,
+      :member_id
       )
+  end
+
+  private def administrator
+    @member.administrator == true
   end
 
 

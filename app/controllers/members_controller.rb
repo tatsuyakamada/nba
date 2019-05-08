@@ -61,4 +61,5 @@ class MembersController < ApplicationController
       :password_confirmation
       )
   end
+
 end

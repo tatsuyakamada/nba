@@ -3,11 +3,11 @@
 
 <button type="button"><%= link_to "新規投稿", :new_article %></button>
 
-
 <% @articles.each do |article| %>
 <div>
   <h2 class="article_title"><%= link_to article.title, article %></h2>
-  <p class="article_body"><%= article.body %></p>
+  <p class="article_body"><%= article.body.truncate(200) %></p>
+  <div>投稿者  <%= link_to article.full_name %></div>
   <div>掲載開始日　<%= article.released_at.strftime("%Y年 %m月 %d日 %H時%M分") %></div>
   <div>掲載終了日　<%= article.expired_at.strftime("%Y年 %m月 %d日 %H時%M分") %></div>
 </div>

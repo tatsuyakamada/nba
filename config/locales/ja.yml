@@ -8,6 +8,7 @@ ja:
         released_at: "掲載開始日"
         expired_at: "掲載終了日"
         member_only: "会員公開"
+        member_id: "投稿者"
       member:
         profile_image: "プロフィール画像"
         last_name: "姓"
@@ -29,6 +30,7 @@ ja:
         too_short: "が短すぎます。"
         too_long: "が長すぎます。"
         confirmation: "パスワードと一致しません。"
+        taken: "は使用できません"
   date:
     abbr_day_names:
     - 日

@@ -43,7 +43,9 @@
       <th><%= form.label :member_only %></th>
       <td><%= form.check_box :member_only, { :checked => true } %></td>
     </tr>
+
     <tr>
+      <%= form.hidden_field :member_id, value: current_member.id %>
       <th><%= form.submit "投稿" %></th>
     </tr>
   </table>
