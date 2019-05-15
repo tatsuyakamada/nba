@@ -3,7 +3,11 @@ class ArticlesController < ApplicationController
 
   #投稿一覧
   def index
-    @articles = Article.open_article
+    if logged_in?
+      @articles = Article.member_article.order(released_at: :desc)
+    else
+      @articles = Article.open_article.order(released_at: :desc)
+    end
   end
 
   #新規登録
@@ -14,7 +18,8 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     if @article.save
-      redirect_to :articles
+      flash[:notice] = "記事を投稿しました！"
+      redirect_to :article
     else
       render "new"
     end
@@ -62,10 +67,6 @@ class ArticlesController < ApplicationController
 
   private def administrator
     @member.administrator == true
-  end
-
-  def full_name
-    "123"
   end
 
 end

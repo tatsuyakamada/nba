@@ -1,0 +1,28 @@
+<% @page_title = "ブログ編集" %>
+<h1><%= @page_title %></h1>
+
+<% if @post.errors.any? %>
+  <div>
+    <ul>
+      <% @post.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @post do |form| %>
+<table>
+<tr>
+  <th><%= form.label :title %></th>
+  <td><%= form.text_field :title, :size=>"60x5" %></td>
+</tr>
+<tr>
+  <th><%= form.label :body %></th>
+  <td><%= form.text_area :body, :size=>"60x15" %></td>
+</tr>
+</table>
+
+<div><%= form.submit "更新", { method: :post} %></div>
+<%= link_to "削除", @post, method: :delete, data: { confirm: "削除しますか?"} %>
+<% end %>

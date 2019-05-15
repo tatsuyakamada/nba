@@ -21,6 +21,10 @@ ja:
         password: "パスワード"
         password_confirmation: "パスワード（確認）"
         administrator: "管理者"
+      post:
+        title: "タイトル"
+        body: "本文"
+        member_only: "会員限定"
       session:
         email: "メールアドレス"
         password: "パスワード"

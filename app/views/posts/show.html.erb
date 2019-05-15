@@ -1,0 +1,9 @@
+<% @page_title = "ブログ詳細" %>
+<h1><%= @page_title %></h1>
+
+<h2><%= simple_format(@post.title) %></h2>
+<p><%= simple_format(@post.body) %></p>
+<p>投稿者　<%= link_to @member.full_name, @member %></p>
+
+<button type="button"><%= link_to "ブログ一覧", :posts %></button>
+<button type="button"><%= link_to "編集", :edit_post %></button>

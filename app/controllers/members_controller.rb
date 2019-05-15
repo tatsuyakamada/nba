@@ -24,6 +24,8 @@ class MembersController < ApplicationController
 
   def show
     @member = Member.find(params[:id])
+    id = @member.id
+    @posts = Post.where("member_id == ?", id ).order(created_at: :desc)
   end
 
   def update
@@ -60,10 +62,6 @@ class MembersController < ApplicationController
       :password,
       :password_confirmation
       )
-  end
-
-  def full_name
-    "123"
   end
 
 end

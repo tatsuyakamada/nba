@@ -9,15 +9,28 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <header>
-    <div class="header">
-        <li><%= link_to "ニュース", :articles %></li>
-        <li><%= link_to "ブログ", "#" %></li>
-        <li><%= link_to "会員一覧", :members %></li>
+    <div>
+      <nav class="menu">
+          <div id="logo">
+            <%= link_to image_tag('logo.png', :size=>"76x41"), "/" %>
+          </div>
+          <div>
+            <a><%= link_to "ニュース", :articles %></a>
+            <a><%= link_to "ブログ", :posts %></a>
+            <a><%= link_to "会員一覧", :members %></a>
+          </div>
+      </nav>
+    </div>
+    <div>
+      <nav class="member">
         <% if logged_in? %>
-        <li><%= link_to "ログアウト", "/logout" %></li>
+        <a><%= link_to current_member.full_name + " さん", current_member %></a>
+        <a><%= link_to "ログアウト", "/logout" %></a>
         <% else %>
-        <li><%= link_to "ログイン", "/login" %></li>
+        <a><%= link_to "新規登録", :new_member %></a>
+        <a><%= link_to "ログイン", "/login" %></a>
         <% end %>
+      </nav>
     </div>
   </header>
 

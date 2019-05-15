@@ -1,4 +1,4 @@
-<% @page_title = "新規投稿" %>
+<% @page_title = "記事投稿" %>
 <h1><%= @page_title %></h1>
 
 <% if @article.errors.any? %>
@@ -15,11 +15,11 @@
   <table id="form">
     <tr>
       <th><%= form.label :title %></th>
-      <td><%= form.text_field :title %></td>
+      <td><%= form.text_area :title, :size=> "60x5" %></td>
     </tr>
     <tr>
       <th><%= form.label :body %></th>
-      <td><%= form.text_area :body %></td>
+      <td><%= form.text_area :body, :size=> "60x15" %></td>
     </tr>
     <tr>
       <th><%= form.label :released_at %></th>

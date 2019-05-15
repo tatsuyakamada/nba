@@ -1,0 +1,14 @@
+<% @page_title = "ブログ一覧" %>
+<h1><%= @page_title %></h1>
+
+<button type="button"><%= link_to "新規投稿", :new_post %></button>
+
+<div>
+  <% @posts.each do |post| %>
+<div>
+  <h3 class="post_title"><%= link_to post.title, post %></h3>
+  <p class="post_body"><%= simple_format(post.body.truncate(200)) %></p>
+  <div>投稿者  <%= link_to post.member.full_name, post.member %></div>
+</div>
+<% end %>
+</div>

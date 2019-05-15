@@ -5,20 +5,64 @@ font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ãƒ’ã
 }
 
 header {
-  height: 50px;
-
+  height: 70px;
+  color: white;
+  background-color: #1C428A;
+  text-decoration: none;
 }
 
-.header {
+nav {
   font-size: 16px;
   font-weight: bold;
   font-family: arial;
   padding: 12px;
   list-style: none;
   display: inline-block;
+  text-decoration: none;
+  float: left;
 }
 
-.header li {
+#logo {
   float: left;
+  display: inline-block;
+}
+
+.menu {
+  display: inline-block;
+  float: left;
+  text-align: left;
   margin-left: 10px;
+  text-decoration: none;
+  width: 100px;
+}
+
+.member {
+  display: inline-block;
+  float: right;
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+
+header a {
+  display: inline;
+  margin-left: 10px;
+  text-decoration: none;
+  color: white;
+}
+
+#news_topics {
+  width: 50%;
+}
+
+.news  {
+  display: block;
+}
+
+.news_title {
+  float: left;
+}
+
+.news_release {
+  float: right;
 }

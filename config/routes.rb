@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   root "top#index"
 
   resources :articles
-  resources :members
+  resources :members do
+   resources :posts, only: [:index]
+ end
+  resources :posts
 
 end

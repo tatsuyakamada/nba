@@ -49,7 +49,7 @@
       <td><%= form.check_box :administrator, { :checked => true } %></td>
     </tr>
   </table>
-  <% if @member.administrator == ture %>
+  <% if @member.administrator? %>
     <button><%= form.submit "更新", { method: :post}  %></button>
     <button><%= link_to "削除", @member, method: :delete, data: { confirm: "削除しますか?"} %></button>
   <% end %>

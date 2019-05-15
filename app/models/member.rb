@@ -18,6 +18,8 @@ class Member < ApplicationRecord
   end
 
   def full_name_call
-    last_name_call + " " +first_name_call
+    last_name_call + " " + first_name_call
   end
+
+
 end

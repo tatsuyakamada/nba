@@ -1,7 +1,7 @@
 class Article < ApplicationRecord
   belongs_to :member
 
-  validates :title, presence: true, length: {minimum: 4, maximum: 30}, uniqueness: true
+  validates :title, presence: true, length: {minimum: 4, maximum: 40}, uniqueness: true
   validates :body, presence: true, length: {minimum: 10, maximum: 2000}
   validate :date_check
 
@@ -13,6 +13,14 @@ class Article < ApplicationRecord
   scope :open_article, -> do
     now = Time.now
       where("released_at <= ?", now).
+      where("expired_at > ?", now).
+      where("member_only == false")
+  end
+
+  scope :member_article, -> do
+    now = Time.now
+      where("released_at <= ?", now).
       where("expired_at > ?", now)
   end
+
 end

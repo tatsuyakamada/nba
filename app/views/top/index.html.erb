@@ -1,2 +1,32 @@
 <% @page_title = "NBA STATS" %>
 <h1><%= @page_title %></h1>
+
+<div id="news_topics">
+  <h2>新着記事一覧</h2>
+    <% if logged_in? %>
+      <% articles = Article.member_article.order(released_at: :desc).limit(5) %>
+    <% else %>
+      <% articles = Article.open_article.order(released_at: :desc).limit(5) %>
+    <% end %>
+    <% articles.each do |article| %>
+      <div class="news">
+        <h4><%= link_to article.title.truncate(30), article %></h4>
+        <a>掲載日 <%= article.released_at.strftime("%Y年%m月%d日") %></a>
+      </div>
+    <% end %>
+</div>
+
+<div id="blog_topics">
+  <h2>新着ブログ一覧</h2>
+    <% if logged_in? %>
+      <% posts = Post.all.order(created_at: :desc).limit(5) %>
+    <% else %>
+      <% posts = Post.open_post.order(created_at: :desc).limit(5) %>
+    <% end %>
+    <% posts.each do |post| %>
+      <div class="blog">
+        <h4><%= link_to post.title.truncate(30), post %></h4>
+        <a>投稿者 <%= post.member.full_name %></a>
+      </div>
+    <% end %>
+</div>
