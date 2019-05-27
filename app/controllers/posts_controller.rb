@@ -29,6 +29,8 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @member = Member.find_by(id: @post.member_id)
+    @comment = Comment.new
+    @comments = Comment.where(post_id: params[:id])
   end
 
   def update

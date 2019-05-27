@@ -5,5 +5,22 @@
 <p><%= simple_format(@post.body) %></p>
 <p>投稿者　<%= link_to @member.full_name, @member %></p>
 
+<h2>コメント一覧</h2>
+<% @comments.each do |comment| %>
+  <div>
+    <td><%= comment.body %></td>
+    <th>投稿者 </th>
+    <td><%= link_to comment.member.full_name, comment.member %></td>
+    <%= link_to "削除", post_comment_url(@post, params[:id]) , method: :delete %>
+  </div>
+<% end %>
+<%= form_for ([@post, @comment]) do |form| %>
+  <th><%= form.label :body %></th>
+  <td><%= form.text_area :body %></td>
+  <%= form.hidden_field :post_id, value: @post.id %>
+  <%= form.hidden_field :member_id, value: current_member.id %>
+  <th><%= form.submit "コメントする" %></th>
+<% end %>
+
 <button type="button"><%= link_to "ブログ一覧", :posts %></button>
 <button type="button"><%= link_to "編集", :edit_post %></button>

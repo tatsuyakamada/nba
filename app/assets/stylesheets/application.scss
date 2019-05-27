@@ -1,68 +1,41 @@
 @import "./articles";
-
-body {
+* {
 font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic';
 }
 
 header {
-  height: 70px;
-  color: white;
+  width: auto;
+  height: 80px;
   background-color: #1C428A;
-  text-decoration: none;
+  font-weight: bold;
+  width: 98%;
+  margin: auto;
 }
 
-nav {
-  font-size: 16px;
-  font-weight: bold;
-  font-family: arial;
-  padding: 12px;
-  list-style: none;
-  display: inline-block;
-  text-decoration: none;
+#header {
   float: left;
+  margin: auto;
+  padding: 5px;
+  width: 95%;
+
+}
+
+#header div {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 5px;
+}
+
+#header a {
+  color: white;
+  text-decoration: none;
 }
 
 #logo {
-  float: left;
-  display: inline-block;
-}
-
-.menu {
-  display: inline-block;
-  float: left;
-  text-align: left;
-  margin-left: 10px;
-  text-decoration: none;
   width: 100px;
+  text-align: center;
 }
 
-.member {
-  display: inline-block;
-  float: right;
-  margin-right: 10px;
-  text-decoration: none;
-}
-
-
-header a {
-  display: inline;
-  margin-left: 10px;
-  text-decoration: none;
-  color: white;
-}
-
-#news_topics {
-  width: 50%;
-}
-
-.news  {
-  display: block;
-}
-
-.news_title {
-  float: left;
-}
-
-.news_release {
+.right_menu {
   float: right;
 }

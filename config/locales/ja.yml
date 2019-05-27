@@ -25,6 +25,8 @@ ja:
         title: "タイトル"
         body: "本文"
         member_only: "会員限定"
+      comment:
+        body: "コメント"
       session:
         email: "メールアドレス"
         password: "パスワード"

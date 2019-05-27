@@ -1,3 +1,30 @@
-// Place all the styles related to the top controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#news_topics {
+  float: left;
+}
+
+#news_topics div {
+  width: 45%;
+  float: left;
+}
+
+.news  {
+  display: block;
+}
+
+.news_title {
+  float: left;
+}
+
+.news_release {
+  float: right;
+}
+
+#blog_topics {
+  width: 45%;
+  float: left;
+}
+
+.blog {
+  display: block;
+}

@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :member
+  has_many :comment
 
   validates :title, presence: true, length: {minimum: 4, maximum: 40}
   validates :body, presence: true, length: {minimum: 10, maximum: 2000}
