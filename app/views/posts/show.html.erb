@@ -11,7 +11,7 @@
     <td><%= comment.body %></td>
     <th>投稿者 </th>
     <td><%= link_to comment.member.full_name, comment.member %></td>
-    <%= link_to "削除", post_comment_url(@post, params[:id]) , method: :delete %>
+    <%= link_to "削除", post_comment_url(@post, comment) , method: :delete %>
   </div>
 <% end %>
 <%= form_for ([@post, @comment]) do |form| %>
