@@ -7,11 +7,11 @@ class Post < ApplicationRecord
 
   scope :open_post, -> do
     now = Time.now
-      where("member_only == false")
+      where(member_only: false)
   end
 
   scope :written_post, -> do
-    where("member_id == @member")
+    where(member_id: @member)
   end
 
 end

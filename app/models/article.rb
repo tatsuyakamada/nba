@@ -14,7 +14,7 @@ class Article < ApplicationRecord
     now = Time.now
       where("released_at <= ?", now).
       where("expired_at > ?", now).
-      where("member_only == false")
+      where(member_only: false)
   end
 
   scope :member_article, -> do

@@ -14,13 +14,17 @@
     <%= link_to "削除", post_comment_url(@post, comment) , method: :delete %>
   </div>
 <% end %>
-<%= form_for ([@post, @comment]) do |form| %>
-  <th><%= form.label :body %></th>
-  <td><%= form.text_area :body %></td>
-  <%= form.hidden_field :post_id, value: @post.id %>
-  <%= form.hidden_field :member_id, value: current_member.id %>
-  <th><%= form.submit "コメントする" %></th>
+<% if logged_in? %>
+  <%= form_for ([@post, @comment]) do |form| %>
+    <th><%= form.label :body %></th>
+    <td><%= form.text_area :body %></td>
+    <%= form.hidden_field :post_id, value: @post.id %>
+    <%= form.hidden_field :member_id, value: current_member.id %>
+    <th><%= form.submit "コメントする" %></th>
+  <% end %>
 <% end %>
 
 <button type="button"><%= link_to "ブログ一覧", :posts %></button>
-<button type="button"><%= link_to "編集", :edit_post %></button>
+<% if logged_in? %>
+  <button type="button"><%= link_to "編集", :edit_post %></button>
+<% end %>

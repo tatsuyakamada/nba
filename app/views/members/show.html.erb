@@ -43,4 +43,6 @@
 
 
 <button type="button"><%= link_to "会員一覧", :members %></button>
-<button type="button"><%= link_to "編集", :edit_member %></button>
+<% if logged_in? %>
+  <button type="button"><%= link_to "編集", :edit_member %></button>
+<% end %>

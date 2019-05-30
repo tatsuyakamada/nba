@@ -6,4 +6,6 @@
 <p>投稿者　<%= link_to @member.full_name, @member %></p>
 
 <button type="button"><%= link_to "記事一覧", :articles %></button>
-<button type="button"><%= link_to "編集", :edit_article %></button>
+<% if logged_in? %>
+  <button type="button"><%= link_to "編集", :edit_article %></button>
+<% end %>
