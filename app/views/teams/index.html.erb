@@ -1,0 +1,26 @@
+<% @page_title = "TEAMS" %>
+<h1><%= @page_title %></h1>
+
+<button type="button"><%= link_to "チーム登録", :new_team %></button>
+
+<% @teams.each do |team|%>
+<table>
+  <tr>
+    <th>カンファレンス</th>
+    <th>ディビジョン</th>
+    <th>チーム名</th>
+    <th>設立</th>
+    <th>本拠地</th>
+    <th>オーナー</th>
+    <th>所属選手数</th>
+  </tr>
+  <tr>
+    <td><%= team.conference %></td>
+    <td><%= team.division %></td>
+    <td><%= link_to team.team_name, team %></td>
+    <td><%= team.establishment %></td>
+    <td><%= team.home_court %></td>
+    <td><%= team.owner%></td>
+  </tr>
+</table>
+<% end %>

@@ -1,40 +1,31 @@
 <% @page_title = "記事編集" %>
 <h1><%= @page_title %></h1>
 
-<% if @article.errors.any? %>
-  <div>
-    <ul>
-      <% @article.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-
-<%= form_for @article do |form| %>
+<%= form_for @article do |f| %>
+<%= render 'layouts/error_messages', model: f.object %>
 <table>
 <tr>
-  <th><%= form.label :title %></th>
-  <td><%= form.text_field :title, :size=>"60x5" %></td>
+  <th><%= f.label :title %></th>
+  <td><%= f.text_field :title, :size=>"60x5" %></td>
 </tr>
 <tr>
-  <th><%= form.label :body %></th>
-  <td><%= form.text_area :body, :size=>"60x15" %></td>
+  <th><%= f.label :body %></th>
+  <td><%= f.text_area :body, :size=>"60x15" %></td>
 </tr>
 <tr>
-  <th><%= form.label :released_at %></th>
-  <td><%= form.datetime_select :released_at %></td>
+  <th><%= f.label :released_at %></th>
+  <td><%= f.datetime_select :released_at %></td>
 </tr>
 <tr>
-  <th><%= form.label :expired_at %></th>
-  <td><%= form.datetime_select :expired_at %></td>
+  <th><%= f.label :expired_at %></th>
+  <td><%= f.datetime_select :expired_at %></td>
 </tr>
 <tr>
-  <th><%= form.label :member_only %></th>
-  <td><%= form.check_box :member_only %></td>
+  <th><%= f.label :member_only %></th>
+  <td><%= f.check_box :member_only %></td>
 </tr>
 </table>
 
-<div><%= form.submit "更新", { method: :post} %></div>
+<div><%= f.submit "更新", { method: :post} %></div>
 <%= link_to "削除", @article, method: :delete, data: { confirm: "削除しますか?"} %>
 <% end %>

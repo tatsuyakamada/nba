@@ -1,0 +1,49 @@
+<% @page_title = "TEAM" %>
+<h1><%= @page_title %></h1>
+
+<%= form_for @team do |f| %>
+<%= render 'layouts/error_messages', model: f.object %>
+
+<table>
+  <tr>
+    <th><%= f.label :conference %></th>
+    <td><%= f.select :conference,[["Western", 1], ["Eastern", 2]] %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :division %></th>
+    <td><%=
+      f.select :division, [
+      ["Atlantic", 1],
+      ["Central", 2],
+      ["Southeast", 3],
+      ["Northwest", 4],
+      ["Pacific", 5],
+      ["Southwest", 6]
+      ] %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :team_name %></th>
+    <td><%= f.text_field :team_name %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :establishment %></th>
+    <td><%= f.date_select :establishment, {
+      start_year: 1900,
+      end_year: Time.current.year,
+      default: Time.zone.today - 30.year,
+      discard_month: true,
+      discard_day: true
+      } %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :home_court %></th>
+    <td><%= f.text_field :home_court %> </td>
+  </tr>
+  <tr>
+    <th><%= f.label :owner %></th>
+    <td><%= f.text_field :owner %></td>
+  </tr>
+  <th><%= f.submit "登録" %></th>
+  </table>
+
+<% end %>

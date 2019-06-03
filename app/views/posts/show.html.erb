@@ -8,23 +8,31 @@
 <h2>コメント一覧</h2>
 <% @comments.each do |comment| %>
   <div>
-    <td><%= comment.body %></td>
-    <th>投稿者 </th>
-    <td><%= link_to comment.member.full_name, comment.member %></td>
-    <%= link_to "削除", post_comment_url(@post, comment) , method: :delete %>
+    <p><%= comment.body %></p>
+    <p>投稿者 <%= link_to comment.member.full_name, comment.member %> </p>
+    <p>
+      <%= comment.created_at.strftime("%Y年 %m月 %d日 %H時%M分") %>
+      <%= link_to "削除", post_comment_url(@post, comment) , method: :delete %>
+    </p>
   </div>
 <% end %>
 <% if logged_in? %>
-  <%= form_for ([@post, @comment]) do |form| %>
-    <th><%= form.label :body %></th>
-    <td><%= form.text_area :body %></td>
-    <%= form.hidden_field :post_id, value: @post.id %>
-    <%= form.hidden_field :member_id, value: current_member.id %>
-    <th><%= form.submit "コメントする" %></th>
+  <%= form_for ([@post, @comment]) do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
+  <div id="comment-modal">
+    <th><%= f.label :body %></th>
+    <td><%= f.text_area :body %></td>
+    <%= f.hidden_field :post_id, value: @post.id %>
+    <%= f.hidden_field :member_id, value: current_member.id %>
+  </div>
+    <th id><%= f.submit "コメントする" %></th>
   <% end %>
 <% end %>
-
 <button type="button"><%= link_to "ブログ一覧", :posts %></button>
 <% if logged_in? %>
   <button type="button"><%= link_to "編集", :edit_post %></button>
 <% end %>
+
+<script>
+
+</script>

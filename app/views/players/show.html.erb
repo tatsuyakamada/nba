@@ -1,0 +1,38 @@
+<% @page_title = "選手情報" %>
+<h1><%= @page_title %></h1>
+
+<table>
+  <tr>
+    <th>選手名</th>
+    <td><%= @player.full_name %></td>
+  </tr>
+  <tr>
+    <th>背番号</th>
+    <td><%= @player.number %></td>
+  </tr>
+  <tr>
+    <th>ポジション</th>
+    <td><%= @player.position %></td>
+  </tr>
+  <tr>
+    <th>誕生日</th>
+    <td><%= @player.birthday.strftime("%Y年 %m月 %d日") %></td>
+  </tr>
+  <tr>
+    <th>身長</th>
+    <td><%= @player.height %></td>
+  </tr>
+  <tr>
+    <th>体重</th>
+    <td><%= @player.weight %></td>
+  </tr>
+  <tr>
+    <th>出身</th>
+    <td><%= @player.college %></td>
+  </tr>
+</table>
+
+<button type="button"><%= link_to "選手一覧", :players %></button>
+<% if logged_in? %>
+  <button type="button"><%= link_to "編集", :edit_player %></button>
+<% end %>

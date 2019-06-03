@@ -9,9 +9,12 @@ Rails.application.routes.draw do
 
   resources :articles
   resources :members do
-   resources :posts, only: [:index]
+    resources :posts, only: [:index]
   end
   resources :posts do
     resources :comments, only: [:create, :destroy]
   end
+  resources :teams
+  resources :players
+
 end

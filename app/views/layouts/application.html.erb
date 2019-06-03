@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <header>
     <div id="header">
@@ -17,6 +18,8 @@
         <div class="menu">
           <a><%= link_to "ニュース", :articles %></a>
           <a><%= link_to "ブログ", :posts %></a>
+          <a><%= link_to "チーム", :teams %></a>
+          <a><%= link_to "選手", :players %></a>
           <a><%= link_to "会員一覧", :members %></a>
         </div>
       </div>

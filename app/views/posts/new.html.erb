@@ -1,34 +1,25 @@
 <% @page_title = "ブログ投稿" %>
 <h1><%= @page_title %></h1>
 
-<% if @post.errors.any? %>
-  <div>
-    <ul>
-      <% @post.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-
-<%= form_for @post do |form| %>
+<%= form_for @post do |f| %>
+<%= render 'layouts/error_messages', model: f.object %>
   <table id="form">
     <tr>
-      <th><%= form.label :title %></th>
-      <td><%= form.text_area :title, :size=> "60x5" %></td>
+      <th><%= f.label :title %></th>
+      <td><%= f.text_area :title, :size=> "60x5" %></td>
     </tr>
     <tr>
-      <th><%= form.label :body %></th>
-      <td><%= form.text_area :body, :size=> "60x15" %></td>
+      <th><%= f.label :body %></th>
+      <td><%= f.text_area :body, :size=> "60x15" %></td>
     </tr>
     <tr>
-      <th><%= form.label :member_only %></th>
-      <td><%= form.check_box :member_only, { :checked => true } %></td>
+      <th><%= f.label :member_only %></th>
+      <td><%= f.check_box :member_only, { :checked => true } %></td>
     </tr>
 
     <tr>
-      <%= form.hidden_field :member_id, value: current_member.id %>
-      <th><%= form.submit "投稿" %></th>
+      <%= f.hidden_field :member_id, value: current_member.id %>
+      <th><%= f.submit "投稿" %></th>
     </tr>
   </table>
 <% end %>

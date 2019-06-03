@@ -5,12 +5,12 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @post = Post.find_by(id: :post_id)
+    @post = Post.find_by(id: params[:post_id])
     @comment = Comment.new(comment_params)
     if @comment.save
       redirect_back(fallback_location: root_path)
     else
-      render "/posts/index"
+      redirect_to @post
     end
   end
 
