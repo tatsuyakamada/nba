@@ -1,0 +1,15 @@
+<% @page_title = "カンファレンス登録" %>
+<h2><%= @page_title %></h2>
+
+<%= form_for @conference do |f| %>
+<%= render 'layouts/error_messages', model: f.object %>
+  <table>
+    <tr>
+      <th><%= f.label :conference_name %></th>
+      <td><%= f.text_field :conference_name %></td>
+    </tr>
+    <tr>
+      <th><%= f.submit "登録" %></th>
+    </tr>
+  </table>
+<% end %>

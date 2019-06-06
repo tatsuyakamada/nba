@@ -7,10 +7,13 @@ class PlayersController < ApplicationController
   def new
     @player = Player.new
     @teams = Team.all
+    @positions = Position.all
   end
 
   def create
     @player = Player.new(player_params)
+    @teams = Team.all
+    @positions = Position.all
     if @player.save
       redirect_to @player
     else

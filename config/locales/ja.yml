@@ -30,9 +30,13 @@ ja:
       session:
         email: "メールアドレス"
         password: "パスワード"
+      conference:
+        conference_name: "カンファレンス"
+      division:
+        conference_id: "カンファレンス"
+        division_name: "ディビジョン"
       team:
-        conference: "カンファレンス"
-        division: "ディビジョン"
+        division_id: "ディビジョン"
         team_name: "チーム名"
         establishment: "設立"
         home_court: "本拠地"
@@ -45,8 +49,16 @@ ja:
         birthday: "誕生日"
         height: "身長"
         weight: "体重"
+        country: "国籍"
         college: "出身"
         affiliation: "所属"
+      headcoach:
+        first_name: "ファーストネーム"
+        last_name: "ラストネーム"
+        birthday: "誕生日"
+        college: "出身"
+      position:
+        position_name: "ポジション"
     errors:
       messages:
         blank: "が空白です"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_03_141338) do
+ActiveRecord::Schema.define(version: 2019_06_06_064927) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title", null: false
@@ -29,6 +29,28 @@ ActiveRecord::Schema.define(version: 2019_06_03_141338) do
     t.datetime "updated_at", null: false
     t.integer "member_id"
     t.bigint "post_id"
+  end
+
+  create_table "conferences", force: :cascade do |t|
+    t.string "conference_name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "divisions", force: :cascade do |t|
+    t.string "division_name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "conference_id"
+  end
+
+  create_table "headcoaches", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.datetime "birthday", null: false
+    t.string "college", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "members", force: :cascade do |t|
@@ -57,7 +79,15 @@ ActiveRecord::Schema.define(version: 2019_06_03_141338) do
     t.string "college", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "affiliation"
+    t.integer "affiliation"
+    t.string "country"
+    t.integer "positions"
+  end
+
+  create_table "positions", force: :cascade do |t|
+    t.string "position_name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: :cascade do |t|
@@ -71,14 +101,13 @@ ActiveRecord::Schema.define(version: 2019_06_03_141338) do
   end
 
   create_table "teams", force: :cascade do |t|
-    t.string "conference", null: false
-    t.string "division", null: false
     t.string "team_name", null: false
     t.date "establishment", null: false
     t.string "home_court", null: false
     t.string "owner", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "division_id"
   end
 
 end

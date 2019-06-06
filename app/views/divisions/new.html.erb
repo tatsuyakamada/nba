@@ -1,0 +1,18 @@
+<% @page_title = "ディビジョン登録" %>
+<h1><%= @page_title %></h1>
+
+<%= form_for @division do |f| %>
+<table>
+  <tr>
+    <th><%= f.label :conference_id %></th>
+    <td><%= f.collection_select(:conference_id, @conferences, :id, :conference_name) %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :division_name %></th>
+    <td><%= f.text_field :division_name %></td>
+  </tr>
+  <tr>
+    <th><%= f.submit "登録" %></th>
+  </tr>
+</table>
+<% end %>

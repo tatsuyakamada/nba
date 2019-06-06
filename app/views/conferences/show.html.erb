@@ -1,0 +1,16 @@
+<% @page_title = "カンファレンス情報" %>
+<h2><%= @page_title %></h2>
+
+<h3><%= @conference.conference_name %></h3>
+
+<% @divisions.each do |division| %>
+  <div>
+    <a><%= division.division_name %></a>
+  </div>
+<% end %>
+
+<button type="button"><%= link_to "一覧", :conferences %></button>
+<% if logged_in? %>
+  <button type="button"><%= link_to "ディビジョン登録", :new_division %></button>
+  <button type="button"><%= link_to "編集", :edit_conference %></button>
+<% end %>

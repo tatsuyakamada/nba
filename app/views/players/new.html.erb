@@ -15,7 +15,7 @@
   </tr>
   <tr>
     <th><%= f.label :position %></th>
-    <td><%= f.check_box :position %></td>
+    <td><%= f.collection_check_boxes(:position, @positions, :id, :position_name) %></td>
   </tr>
   <tr>
     <th><%= f.label :birthday %></th>
@@ -33,6 +33,10 @@
   <tr>
     <th><%= f.label :weight %></th>
     <td><%= f.text_field :weight %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :country %></th>
+    <td><%= f.country_select :country, priority_countries: ["US"] %></td>
   </tr>
   <tr>
     <th><%= f.label :college %></th>

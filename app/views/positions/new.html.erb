@@ -1,0 +1,15 @@
+<% @page_title = "ポジション登録" %>
+<h1><%= @page_title %></h1>
+
+<%= form_for @position do |f| %>
+<%= render 'layouts/error_messages', model: f.object %>
+<table>
+  <tr>
+    <th><%= f.label :position_name %></th>
+    <td><%= f.text_field :position_name %></td>
+  </tr>
+  <tr>
+    <th><%= f.submit "新規登録" %></th>
+  </tr>
+</table>
+<% end %>

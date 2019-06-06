@@ -5,10 +5,12 @@ class TeamsController < ApplicationController
   end
 
   def new
+    @divisions = Division.all
     @team = Team.new
   end
 
   def create
+    @divisions = Division.all
     @team = Team.new(team_params)
     if @team.save
       redirect_to @team
@@ -47,8 +49,7 @@ class TeamsController < ApplicationController
 
   private def team_params
     params.require(:team).permit(
-      :conference,
-      :division,
+      :division_id,
       :team_name,
       :establishment,
       :home_court,

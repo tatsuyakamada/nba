@@ -5,11 +5,11 @@
 <table>
   <tr>
     <th>カンファレンス</th>
-    <td><%= @team.conference %></td>
+    <th><%= @team.division.conference.conference_name %></th>
   </tr>
   <tr>
     <th>ディビジョン</th>
-    <td><%= @team.division %></td>
+    <td><%= @team.division.division_name %></td>
   </tr>
   <tr>
     <th>チーム名</th>

@@ -1,0 +1,17 @@
+<% @page_title = "HC情報" %>
+<h1><%= @page_title %></h1>
+
+<table>
+  <tr>
+    <th>名前</th>
+    <td><%= @headcoach.full_name %></td>
+  </tr>
+  <tr>
+    <th>生年月日</th>
+    <td><%= @headcoach.birthday.strftime("%Y年%m月%d日") %></td>
+  </tr>
+  <tr>
+    <th>出身</th>
+    <td><%= @headcoach.college %></td>
+  </tr>
+</table>

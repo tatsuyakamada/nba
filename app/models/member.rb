@@ -1,6 +1,6 @@
 class Member < ApplicationRecord
-  has_many :post
-  has_many :comment
+  has_many :posts
+  has_many :comments
 
   validates :last_name, presence: true, length: {maximum: 6}
   validates :first_name, presence: true, length: {maximum: 6}

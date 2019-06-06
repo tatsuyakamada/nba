@@ -15,10 +15,10 @@
     <th>所属選手数</th>
   </tr>
   <tr>
-    <td><%= team.conference %></td>
-    <td><%= team.division %></td>
+    <td><%= team.division.conference.conference_name %></td>
+    <td><%= team.division.division_name %></td>
     <td><%= link_to team.team_name, team %></td>
-    <td><%= team.establishment %></td>
+    <td><%= team.establishment.strftime ("%Y年") %></td>
     <td><%= team.home_court %></td>
     <td><%= team.owner%></td>
   </tr>

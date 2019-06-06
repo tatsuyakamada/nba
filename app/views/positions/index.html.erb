@@ -1,0 +1,17 @@
+<% @page_title = "ポジション一覧" %>
+<h1><%= @page_title %></h1>
+
+<button type="button"><%= link_to "ポジション登録", :new_position %></button>
+
+
+<table>
+  <tr>
+    <th>ポジション</th>
+    <th>選手数</th>
+  </tr>
+<% @positions.each do |position| %>
+  <tr>
+    <td><%= link_to position.position_name, position %></td>
+  </tr>
+<% end %>
+</table>

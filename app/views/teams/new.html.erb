@@ -6,20 +6,8 @@
 
 <table>
   <tr>
-    <th><%= f.label :conference %></th>
-    <td><%= f.select :conference,[["Western", 1], ["Eastern", 2]] %></td>
-  </tr>
-  <tr>
-    <th><%= f.label :division %></th>
-    <td><%=
-      f.select :division, [
-      ["Atlantic", 1],
-      ["Central", 2],
-      ["Southeast", 3],
-      ["Northwest", 4],
-      ["Pacific", 5],
-      ["Southwest", 6]
-      ] %></td>
+    <th><%= f.label :division_id %></th>
+    <td><%= f.collection_select(:division_id, @divisions, :id, :division_name) %></td>
   </tr>
   <tr>
     <th><%= f.label :team_name %></th>

@@ -14,7 +14,11 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments, only: [:create, :destroy]
   end
+  resources :conferences
+  resources :divisions
   resources :teams
   resources :players
+  resources :headcoaches
+  resources :positions
 
 end
