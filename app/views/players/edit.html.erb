@@ -1,5 +1,5 @@
-<% @page_title = "選手登録" %>
-<h1><%= @page_title %></h1>
+<% @page_title = "プレイヤー編集" %>
+<%= @page_title %>
 
 <%= form_for @player do |f| %>
 <%= render 'layouts/error_messages', model: f.object %>
@@ -51,7 +51,7 @@
     <td><%= f.collection_select(:affiliation, @teams, :id, :team_name) %></td>
   </tr>
   <tr>
-    <th><%= f.submit "新規登録" %></th>
+    <th><%= f.submit "更新" %></th>
   </tr>
 </table>
 <% end %>

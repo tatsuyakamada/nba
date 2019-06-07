@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_06_064927) do
+ActiveRecord::Schema.define(version: 2019_06_06_150843) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title", null: false
@@ -72,16 +72,22 @@ ActiveRecord::Schema.define(version: 2019_06_06_064927) do
     t.string "first_name", null: false
     t.string "last_name", null: false
     t.integer "number", null: false
-    t.string "position", null: false
     t.datetime "birthday", null: false
     t.float "height", null: false
     t.float "weight", null: false
     t.string "college", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "affiliation"
     t.string "country"
     t.integer "positions"
+    t.string "player_image"
+  end
+
+  create_table "players_positions", id: false, force: :cascade do |t|
+    t.integer "player_id", null: false
+    t.integer "position_id", null: false
+    t.index ["player_id"], name: "index_players_positions_on_player_id"
+    t.index ["position_id"], name: "index_players_positions_on_position_id"
   end
 
   create_table "positions", force: :cascade do |t|
@@ -108,6 +114,7 @@ ActiveRecord::Schema.define(version: 2019_06_06_064927) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "division_id"
+    t.string "team_image"
   end
 
 end

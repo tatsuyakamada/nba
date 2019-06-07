@@ -40,6 +40,8 @@ gem 'jquery-rails'
 
 gem 'carrierwave'
 
+gem 'rmagick'
+
 gem 'bootstrap', '~> 4.3.1'
 
 gem 'country_select'

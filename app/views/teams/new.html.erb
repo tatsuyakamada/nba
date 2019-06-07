@@ -6,6 +6,10 @@
 
 <table>
   <tr>
+    <th><%= f.label :team_image %></th>
+    <td><%= f.file_field :team_image %></td>
+  </tr>
+  <tr>
     <th><%= f.label :division_id %></th>
     <td><%= f.collection_select(:division_id, @divisions, :id, :division_name) %></td>
   </tr>

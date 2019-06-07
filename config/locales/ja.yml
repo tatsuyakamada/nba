@@ -42,9 +42,10 @@ ja:
         home_court: "本拠地"
         owner: "オーナー"
       player:
+        image: "イメージ"
         first_name: "ファーストネーム"
         last_name: "ラストネーム"
-        number: "背番号"
+        number: "No."
         position: "ポジション"
         birthday: "誕生日"
         height: "身長"

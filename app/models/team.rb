@@ -1,4 +1,6 @@
 class Team < ApplicationRecord
+  mount_uploader :team_image, TeamImageUploader
+
   belongs_to :division
 
   validates :division_id, presence: true

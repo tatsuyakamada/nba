@@ -7,13 +7,11 @@ class PlayersController < ApplicationController
   def new
     @player = Player.new
     @teams = Team.all
-    @positions = Position.all
   end
 
   def create
     @player = Player.new(player_params)
     @teams = Team.all
-    @positions = Position.all
     if @player.save
       redirect_to @player
     else
@@ -23,6 +21,7 @@ class PlayersController < ApplicationController
 
   def edit
     @player = Player.find(params[:id])
+    @teams = Team.all
   end
 
   def show
@@ -50,14 +49,15 @@ class PlayersController < ApplicationController
 
   private def player_params
     params.require(:player).permit(
+      :image,
       :first_name,
       :last_name,
       :number,
-      :position,
       :birthday,
       :height,
       :weight,
-      :college
+      :college,
+      position_ids: []
     )
   end
 

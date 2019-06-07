@@ -3,6 +3,7 @@
 
 <h3>チーム情報</h3>
 <table>
+  <%= image_tag @team.team_image.to_s %>
   <tr>
     <th>カンファレンス</th>
     <th><%= @team.division.conference.conference_name %></th>
