@@ -26,6 +26,8 @@ class PlayersController < ApplicationController
 
   def show
     @player = Player.find(params[:id])
+    @team_player = TeamPlayer.where(player_id: params[:id])
+    @team = Team.find_by(id: :team_id)
   end
 
   def update
@@ -41,7 +43,7 @@ class PlayersController < ApplicationController
   def destroy
     @player = Player.find(params[:id])
     if @player.destroy
-      redirect_to @players
+      redirect_to :players
     else
       render "edit"
     end

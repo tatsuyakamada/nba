@@ -1,5 +1,5 @@
 <% @page_title = "プレイヤー編集" %>
-<%= @page_title %>
+<h1><%= @page_title %></h1>
 
 <%= form_for @player do |f| %>
 <%= render 'layouts/error_messages', model: f.object %>
@@ -47,11 +47,8 @@
     <td><%= f.text_field :college %></td>
   </tr>
   <tr>
-    <th><%= f.label :affiliation %></th>
-    <td><%= f.collection_select(:affiliation, @teams, :id, :team_name) %></td>
-  </tr>
-  <tr>
     <th><%= f.submit "更新" %></th>
-  </tr>
+    <th><button><%= link_to "削除", @player, method: :delete, data: { confirm: "削除しますか?"} %></button></th>
+
 </table>
 <% end %>

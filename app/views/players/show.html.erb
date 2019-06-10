@@ -1,6 +1,7 @@
-<% @page_title = "選手情報" %>
+<% @page_title = "プレイヤー詳細" %>
 <h1><%= @page_title %></h1>
 
+<h2>基本情報</h2>
 <table>
   <tr>
     <th>選手名</th>
@@ -12,7 +13,7 @@
   </tr>
   <tr>
     <th>ポジション</th>
-    <td><%= @player.position_ids %></td>
+    <td><%= @player.positions.sort.map(&:position_name).join('/') %></td>
   </tr>
   <tr>
     <th>誕生日</th>
@@ -32,6 +33,26 @@
   </tr>
 </table>
 
+<h2>契約情報</h2>
+<table>
+  <tr>
+    <th>No.</th>
+    <th>契約チーム</th>
+    <th>契約開始日</th>
+    <th>契約終了日</th>
+  </tr>
+<% @team_player.each do |team_player| %>
+  <tr>
+    <td><%= link_to team_player.id, edit_player_team_player_url(@player, team_player) %></td>
+    <td><%= link_to team_player.team.team_name, :team %></td>
+    <td><%= team_player.contract_start %></td>
+    <td><%= team_player.contract_period %></td>
+  </tr>
+<% end %>
+</table>
+
+
+<button type="button"><%= link_to "選手契約登録", new_player_team_player_url(@player) %></button>
 <button type="button"><%= link_to "選手一覧", :players %></button>
 <% if logged_in? %>
   <button type="button"><%= link_to "編集", :edit_player %></button>

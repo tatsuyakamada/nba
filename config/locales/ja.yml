@@ -53,6 +53,11 @@ ja:
         country: "国籍"
         college: "出身"
         affiliation: "所属"
+      team_player:
+        player_id: "選手"
+        team_id: "契約チーム"
+        contract_start: "契約開始日"
+        contract_period: "契約終了日"
       headcoach:
         first_name: "ファーストネーム"
         last_name: "ラストネーム"

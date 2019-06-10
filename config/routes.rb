@@ -17,7 +17,9 @@ Rails.application.routes.draw do
   resources :conferences
   resources :divisions
   resources :teams
-  resources :players
+  resources :players do
+    resources :team_players
+  end
   resources :headcoaches
   resources :positions
 

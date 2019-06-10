@@ -1,5 +1,6 @@
 class Player < ApplicationRecord
   has_and_belongs_to_many :positions
+  has_many :team_players
 
   def full_name
     first_name + " " + last_name

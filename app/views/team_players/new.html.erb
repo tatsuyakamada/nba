@@ -1,0 +1,34 @@
+<% @page_title = "選手契約登録" %>
+<h1><%= @page_title %></h1>
+
+<%= form_for ([@player, @team_player]) do |f| %>
+<%= render 'layouts/error_messages', model: f.object %>
+<table>
+  <tr>
+    <th><%= f.label :team_id %></th>
+    <td><%= f.collection_select(:team_id, @teams, :id, :team_name) %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :contract_start %></th>
+    <td><%= f.date_select :contract_start, {
+          start_year: 1990,
+          end_year: 2025,
+          default: Time.zone.today
+        }
+          %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :contract_period %></th>
+    <td><%= f.date_select :contract_period, {
+          start_year: 1990,
+          end_year: 2025,
+          default: Time.zone.today
+        }
+          %></td>
+  </tr>
+  <tr>
+    <%= f.hidden_field :player_id, value: @player.id %>
+    <th><%= f.submit "新規登録" %></th>
+  </tr>
+</table>
+<% end %>
