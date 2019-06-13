@@ -15,3 +15,7 @@
     <td><%= @headcoach.college %></td>
   </tr>
 </table>
+  <button type="button"><%= link_to "HC一覧", :headcoaches %></button>
+  <% if logged_in? %>
+    <button type="button"><%= link_to "HC編集", :edit_headcoach %></button>
+  <% end %>

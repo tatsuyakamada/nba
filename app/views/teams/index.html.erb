@@ -3,7 +3,8 @@
 
 <button type="button"><%= link_to "チーム登録", :new_team %></button>
 
-<% @teams.each do |team|%>
+<div class="team-index">
+
 <table>
   <tr>
     <th>カンファレンス</th>
@@ -14,6 +15,7 @@
     <th>オーナー</th>
     <th>所属選手数</th>
   </tr>
+<% @teams.each do |team|%>
   <tr>
     <td><%= team.division.conference.conference_name %></td>
     <td><%= team.division.division_name %></td>
@@ -22,5 +24,6 @@
     <td><%= team.home_court %></td>
     <td><%= team.owner%></td>
   </tr>
-</table>
 <% end %>
+</table>
+</div>

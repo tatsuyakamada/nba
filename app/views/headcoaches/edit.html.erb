@@ -1,0 +1,30 @@
+<% @page_title = "HC編集" %>
+<h1><%= @page_title %></h1>
+
+<%= form_for @headcoach do |f| %>
+<%= render 'layouts/error_messages', model: f.object %>
+<table>
+  <tr>
+    <th><%= f.label :first_name %></th>
+    <td><%= f.text_field :first_name %></td>
+    <th><%= f.label :last_name %></th>
+    <td><%= f.text_field :last_name %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :birthday %></th>
+    <td><%= f.date_select :birthday, {
+          start_year: 1920,
+          end_year: Time.current.year,
+          default: Time.zone.today - 50.year
+        }
+          %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :college %></th>
+    <td><%= f.text_field :college %></td>
+  </tr>
+  <tr>
+    <th><%= f.submit "更新" %></th>
+  </tr>
+</table>
+<% end %>

@@ -21,11 +21,12 @@ class TeamsController < ApplicationController
 
   def edit
     @team = Team.find(params[:id])
+    @divisions = Division.all
   end
 
   def show
     @team = Team.find(params[:id])
-    @team_players = TeamPlayer.current_player
+    @team_players = TeamPlayer.current_player(params[:id])
   end
 
   def update

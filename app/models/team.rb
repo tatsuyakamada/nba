@@ -2,7 +2,7 @@ class Team < ApplicationRecord
   mount_uploader :team_image, TeamImageUploader
 
   belongs_to :division
-  has_many :team_player
+  has_many :team_players
   has_many :players, through: :team_players
 
   validates :division_id, presence: true

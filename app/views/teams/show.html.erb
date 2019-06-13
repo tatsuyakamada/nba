@@ -1,9 +1,10 @@
 <% @page_title = @team.team_name %>
 <h1><%= @page_title %></h1>
 
+<div class="team-info">
 <h3>チーム情報</h3>
 <table>
-  <%= image_tag @team.team_image.to_s %>
+  <%= image_tag @team.team_image.to_s, :size => '200x200' %>
   <tr>
     <th>カンファレンス</th>
     <th><%= @team.division.conference.conference_name %></th>
@@ -29,9 +30,10 @@
     <td><%= @team.owner %></td>
   </tr>
 </table>
+</div>
 
+<div class="team-player">
 <h3>所属選手</h3>
-<% @team_players.each do |team_player| %>
 <table>
   <tr>
     <th>選手名</th>
@@ -42,14 +44,22 @@
     <th>体重</th>
     <th>出身</th>
   </tr>
+<% @team_players.each do |player| %>
   <tr>
-    <td><%= team_player.full_name %></td>
-    <td><%= team_player.number %></td>
-    <td><%= team_player.positions.sort.map(&:position_name).join('/') %></td>
-    <td><%= team_player.age %></td>
-    <td><%= team_player.height %></td>
-    <td><%= team_player.weight %></td>
-    <td><%= team_player.college %></td>
+    <td><%= link_to player.player.full_name, :player %></td>
+    <td><%= player.player.number %></td>
+    <td><%= player.player.positions.sort.map(&:position_name).join('/') %></td>
+    <td><%= player.player.age %></td>
+    <td><%= player.player.height %></td>
+    <td><%= player.player.weight %></td>
+    <td><%= player.player.college %></td>
   </tr>
+<% end %>
 </table>
+</div>
+
+
+<button type="button"><%= link_to "チーム一覧", :teams %></button>
+<% if logged_in? %>
+  <button type="button"><%= link_to "編集", :edit_team %></button>
 <% end %>
