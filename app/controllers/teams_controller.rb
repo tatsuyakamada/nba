@@ -2,6 +2,7 @@ class TeamsController < ApplicationController
 
   def index
     @teams = Team.all
+    @team_players = TeamPlayer.current_player(params[:id])
   end
 
   def new

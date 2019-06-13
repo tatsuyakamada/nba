@@ -11,4 +11,11 @@ class Team < ApplicationRecord
   validates :home_court, presence: true
   validates :owner, presence: true
 
+  def current_player_number
+    TeamPlayer.where("contract_start <= ?", Time.now).
+               where("contract_period > ?", Time.now).
+               where("team_id = ? ", id).
+               count
+    end
+
 end
