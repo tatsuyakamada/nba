@@ -44,15 +44,15 @@
     <th>体重</th>
     <th>出身</th>
   </tr>
-<% @team_players.each do |player| %>
+<% @team.players.current.each do |player| %>
   <tr>
-    <td><%= link_to player.player.full_name, :player %></td>
-    <td><%= player.player.number %></td>
-    <td><%= player.player.positions.sort.map(&:position_name).join('/') %></td>
-    <td><%= player.player.age %></td>
-    <td><%= player.player.height %></td>
-    <td><%= player.player.weight %></td>
-    <td><%= player.player.college %></td>
+    <td><%= link_to player.full_name, player %></td>
+    <td><%= player.number %></td>
+    <td><%= player.positions.sort.map(&:position_name).join('/') %></td>
+    <td><%= player.age %></td>
+    <td><%= player.height %></td>
+    <td><%= player.weight %></td>
+    <td><%= player.college %></td>
   </tr>
 <% end %>
 </table>

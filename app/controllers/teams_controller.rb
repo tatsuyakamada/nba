@@ -2,7 +2,6 @@ class TeamsController < ApplicationController
 
   def index
     @teams = Team.all
-    @team_players = TeamPlayer.current_player(params[:id])
   end
 
   def new
@@ -27,7 +26,6 @@ class TeamsController < ApplicationController
 
   def show
     @team = Team.find(params[:id])
-    @team_players = TeamPlayer.current_player(params[:id])
   end
 
   def update

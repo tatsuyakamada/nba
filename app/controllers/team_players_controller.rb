@@ -19,7 +19,7 @@ class TeamPlayersController < ApplicationController
 
   def edit
     @team_player = TeamPlayer.find(params[:id])
-    @player = Player.find_by(id: :player_id)
+    @player = Player.find(params[:player_id])
     @teams = Team.all
   end
 
