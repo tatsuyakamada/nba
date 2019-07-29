@@ -1,6 +1,7 @@
 <% @page_title = "HC情報" %>
 <h1><%= @page_title %></h1>
 
+<%= image_tag @headcoach.headcoach_image.to_s, :size => '200x200' %>
 <table>
   <tr>
     <th>名前</th>
@@ -15,7 +16,7 @@
     <td><%= @headcoach.college %></td>
   </tr>
 </table>
-  <button type="button"><%= link_to "HC一覧", :headcoaches %></button>
-  <% if logged_in? %>
-    <button type="button"><%= link_to "HC編集", :edit_headcoach %></button>
+  <button><%= link_to "HC一覧", :headcoaches %></button>
+  <% if admin_member %>
+    <button><%= link_to "HC編集", :edit_headcoach %></button>
   <% end %>

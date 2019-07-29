@@ -1,0 +1,15 @@
+<% @page_title = "プレイヤーCSV取込" %>
+<h1><%= @page_title %></h1>
+
+<div>
+  <%= form_tag players_path, method: :post, multipart: true do |f| %>
+    <div>
+      <%= text_field_tag 'filename',"", id: "filename", disabled: true %>
+      <%= file_field_tag 'emails_file', id: "file_input", style: "display: none;", onchange: "file_selected($(this));" %>
+      <%= button_tag 'ファイル選択', class: %i(btn-primary csv_input_btn), type: 'button', onclick: "$('#file_input').click();" %>
+    </div>
+    <div>
+      <button type="submit">CSVインポート</button>
+    </div>
+  <% end %>
+</div>

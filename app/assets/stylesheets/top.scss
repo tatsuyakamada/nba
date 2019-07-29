@@ -1,30 +1,57 @@
 
 #news_topics {
+  padding: 10px;
+  width: 48%;
   float: left;
-}
-
-#news_topics div {
-  width: 45%;
-  float: left;
+  background-color: white;
+  margin-right: 50px;
 }
 
 .news  {
+  border-bottom: double #a9a9a9;
+  margin-top: 10px;
   display: block;
 }
 
-.news_title {
-  float: left;
+.expired-day {
+  font-size: 12px;
 }
 
-.news_release {
-  float: right;
+.post-date {
+  font-size: 16px;
 }
 
 #blog_topics {
-  width: 45%;
+  padding: 10px;
+  width: 48%;
   float: left;
+  background-color: white;
 }
 
 .blog {
   display: block;
+  margin-top: 10px;
+}
+
+.top-index {
+  float: right;
+  margin-right: 50px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.blog {
+  border-bottom: double #a9a9a9;
+}
+
+.contributor {
+  font-size: 12px;
+}
+
+.index {
+  margin: 10px;
+  float: right;
 }

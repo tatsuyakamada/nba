@@ -5,10 +5,15 @@
 <%= render 'layouts/error_messages', model: f.object %>
 <table>
   <tr>
-    <th><%= f.label :first_name %></th>
-    <td><%= f.text_field :first_name %></td>
-    <th><%= f.label :last_name %></th>
-    <td><%= f.text_field :last_name %></td>
+    <th><%= f.label :headcoach_image %></th>
+    <td><%= f.file_field :headcoach_image %></td>
+  </tr>
+  <tr>
+    <th rowspan="2">コーチ名</th>
+    <td><%= f.label :first_name %><%= f.text_field :first_name %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :last_name %><%= f.text_field :last_name %></td>
   </tr>
   <tr>
     <th><%= f.label :birthday %></th>
@@ -23,8 +28,6 @@
     <th><%= f.label :college %></th>
     <td><%= f.text_field :college %></td>
   </tr>
-  <tr>
-    <th><%= f.submit "新規登録" %></th>
-  </tr>
 </table>
+<button><%= "新規登録" %></button>
 <% end %>

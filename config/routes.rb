@@ -2,25 +2,43 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   get 'logout' => 'sessions#logout'
-  get 'members/index'
-  get 'members/new'
-  get 'members/edit'
+  get 'admin' => 'admin#index'
   root "top#index"
 
-  resources :articles
+  #管理者用メニュー
+    namespace :admin do
+      resources :articles
+      resources :members
+      resources :posts do
+        resources :comments, only: [:create, :destroy]
+      end
+      resources :players do
+        resources :team_players
+        collection do
+          get 'player_import'
+        end
+      end
+      resources :schedules
+      resources :teams
+    end
+    resources :conferences
+    resources :divisions
+    resources :positions
+
+
+  #一般用メニュー
+  resources :articles, only: [:index, :show]
   resources :members do
     resources :posts, only: [:index]
   end
   resources :posts do
     resources :comments, only: [:create, :destroy]
   end
-  resources :conferences
-  resources :divisions
-  resources :teams
   resources :players do
-    resources :team_players
+    resources :team_players, only:[:show]
   end
   resources :headcoaches
-  resources :positions
+  resources :schedules, only:[:index]
+  resources :teams
 
 end

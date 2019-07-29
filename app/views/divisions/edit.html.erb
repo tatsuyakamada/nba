@@ -1,0 +1,17 @@
+<% @page_title = "ディビジョン編集" %>
+<h2><%= @page_title %></h2>
+
+<%= form_for @division do |f| %>
+<%= render 'layouts/error_messages', model: f.object %>
+<table>
+  <tr>
+    <th><%= f.label :conference_id %></th>
+    <td><%= f.collection_select(:conference_id, @conferences, :id, :conference_name) %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :division_name %></th>
+    <td><%= f.text_field :division_name %></td>
+  </tr>
+</table>
+<button><%= "更新" %></button>
+<% end %>

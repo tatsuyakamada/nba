@@ -16,10 +16,7 @@
       <th><%= f.label :member_only %></th>
       <td><%= f.check_box :member_only, { :checked => true } %></td>
     </tr>
-
-    <tr>
-      <%= f.hidden_field :member_id, value: current_member.id %>
-      <th><%= f.submit "投稿" %></th>
-    </tr>
   </table>
+  <%= f.hidden_field :member_id, value: current_member.id %>
+  <button><%= "投稿" %></button>
 <% end %>

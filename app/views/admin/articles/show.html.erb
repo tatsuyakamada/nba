@@ -1,0 +1,11 @@
+<% @page_title = "記事詳細" %>
+<h1><%= @page_title %></h1>
+
+<h2><%= simple_format(@article.title) %></h2>
+<p><%= simple_format(@article.body) %></p>
+<p>投稿者　<%= link_to @member.full_name, @member %></p>
+
+<button type="button"><%= link_to "記事一覧", :articles %></button>
+<% if logged_in? %>
+  <button type="button"><%= link_to "編集", :edit_article %></button>
+<% end %>

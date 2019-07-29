@@ -1,0 +1,16 @@
+<% @page_title = "記事一覧" %>
+<h1><%= @page_title %></h1>
+
+<button type="button"><%= link_to "新規投稿", :new_admin_article %></button>
+
+<div>
+<% @articles.each do |article| %>
+<div class="article-index">
+  <h3><%= link_to article.title, article %></h3>
+  <p><%= simple_format(article.body.truncate(200)) %></p>
+  <div>投稿者  <%= link_to article.member.full_name, article.member %></div>
+  <div>掲載開始日　<%= article.released_at.strftime("%Y年 %m月 %d日 %H時%M分") %></div>
+  <div>掲載終了日　<%= article.expired_at.strftime("%Y年 %m月 %d日 %H時%M分") %></div>
+</div>
+<% end %>
+</div>

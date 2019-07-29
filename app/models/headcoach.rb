@@ -1,4 +1,5 @@
 class Headcoach < ApplicationRecord
+  mount_uploader :headcoach_image, HeadcoachImageUploader
 
   def full_name
     first_name + " " + last_name

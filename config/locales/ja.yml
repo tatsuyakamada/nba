@@ -2,6 +2,7 @@ ja:
   activerecord:
     attributes:
       article:
+        article_image: "記事画像"
         article: "記事"
         title: "タイトル"
         body: "本文"
@@ -42,7 +43,7 @@ ja:
         home_court: "本拠地"
         owner: "オーナー"
       player:
-        image: "イメージ"
+        player_image: "選手画像"
         first_name: "ファーストネーム"
         last_name: "ラストネーム"
         number: "No."
@@ -58,7 +59,15 @@ ja:
         team_id: "契約チーム"
         contract_start: "契約開始日"
         contract_period: "契約終了日"
+      schedule:
+        match_day: "試合日"
+        home_team_id: "ホームチーム"
+        away_team_id: "アウェイチーム"
+        venue: "開催地"
+        home_score: "ホームスコア"
+        away_score: "アウェイスコア"
       headcoach:
+        headcoach_image: "コーチ画像"
         first_name: "ファーストネーム"
         last_name: "ラストネーム"
         birthday: "誕生日"

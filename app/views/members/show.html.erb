@@ -29,13 +29,13 @@
   </tr>
 </table>
 
-<div>
+<div class="my-post">
   <h2>投稿ブログ</h2>
   <a>投稿件数: <%= posts_count %> 件</a>
   <% @posts.each do |post| %>
-  <div>
-    <h4 class="post_title"><%= link_to post.title, post %></h4>
-    <p class="post_body"><%= simple_format(post.body.truncate(50)) %></p>
+  <div class="my-post-content">
+    <h4><span class="post-title"><%= link_to post.title, post %></span></h4>
+    <p class="post-body"><%= simple_format(post.body.truncate(50)) %></p>
   </div>
   <% end %>
 </div>

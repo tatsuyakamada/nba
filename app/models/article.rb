@@ -1,4 +1,6 @@
 class Article < ApplicationRecord
+  mount_uploader :article_image, ArticleImageUploader
+
   belongs_to :member
 
   validates :title, presence: true, length: {minimum: 4, maximum: 40}, uniqueness: true

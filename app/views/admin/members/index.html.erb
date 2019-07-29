@@ -1,0 +1,21 @@
+<% @page_title = "会員一覧" %>
+<h1><%= @page_title %></h1>
+
+<button type="button"><%= link_to "会員登録", :new_member %></button>
+
+<table>
+<tr>
+  <th>名前</th>
+  <th>フリガナ </th>
+  <th>メールアドレス</th>
+  <th>誕生日</th>
+</tr>
+<% @members.each do |member| %>
+<tr>
+  <td><%= link_to member.last_name + " " + member.first_name , member %></td>
+  <td><%= member.last_name_call %> <%= member.first_name_call %></td>
+  <td><%= member.email %></td>
+  <td><%= member.birthday.strftime("%Y年 %m月 %d日") %></td>
+</tr>
+<% end %>
+</table>
