@@ -8,6 +8,6 @@
       <td><%= f.text_field :conference_name %></td>
     </tr>
   </table>
-  <div><%= f.submit "更新", { method: :post} %></div>
+  <button><%= "更新" %></button>
   <button type="button"><%= link_to "削除", @conference, method: :delete, data: { confirm: "削除しますか?"} %></button>
   <% end %>

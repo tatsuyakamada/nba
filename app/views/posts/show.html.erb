@@ -5,17 +5,23 @@
 <p><%= simple_format(@post.body) %></p>
 <p>投稿者　<%= link_to @member.full_name, @member %></p>
 
-<h2>コメント一覧</h2>
-<% @comments.each do |comment| %>
+
+<% if @comments.count > 0 %>
   <div>
-    <p><%= comment.body %></p>
-    <p>投稿者 <%= link_to comment.member.full_name, comment.member %> </p>
-    <p>
-      <%= comment.created_at.strftime("%Y年 %m月 %d日 %H時%M分") %>
-      <%= link_to "削除", post_comment_url(@post, comment) , method: :delete %>
-    </p>
-  </div>
-<% end %>
+    <h2>コメント一覧</h2>
+    <% @comments.each do |comment| %>
+      <p><%= comment.body %></p>
+      <p>投稿者 <%= link_to comment.member.full_name, comment.member %> </p>
+      <p><%= comment.created_at.strftime("%Y年 %m月 %d日 %H時%M分") %>
+        <% if current_member &.administrator? || current_member &.id == comment.member_id %>
+          <%= link_to "削除", post_comment_url(@post, comment) , method: :delete %>
+        </p>
+        <% end %>
+    <% end %>
+    </div>
+  <% end %>
+
+
 <% if logged_in? %>
   <%= form_for ([@post, @comment]) do |f| %>
   <%= render 'layouts/error_messages', model: f.object %>
@@ -28,9 +34,9 @@
     <th id><%= f.submit "コメントする" %></th>
   <% end %>
 <% end %>
-<button type="button"><%= link_to "ブログ一覧", :posts %></button>
-<% if logged_in? %>
-  <button type="button"><%= link_to "編集", :edit_post %></button>
+<button><%= link_to "ブログ一覧", :posts %></button>
+<% if current_member == @post.member %>
+  <button><%= link_to "編集", :edit_post %></button>
 <% end %>
 
 <script>

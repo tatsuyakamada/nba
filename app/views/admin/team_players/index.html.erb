@@ -1,0 +1,15 @@
+<% @page_title = "選手契約一覧" %>
+<h1><%= @page_title %></h1>
+
+<% @team_players.each do |team_player| %>
+<table>
+  <tr>
+    <th>選手名</th>
+    <th>契約チーム</th>
+    <th>契約開始日</th>
+    <th>契約終了日</th>
+  </tr>
+</table>
+
+
+<% end %>

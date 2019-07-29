@@ -1,7 +1,7 @@
 class TeamsController < ApplicationController
 
   def index
-    @teams = Team.all
+    @conferences = Conference.all
   end
 
   def new
@@ -26,6 +26,7 @@ class TeamsController < ApplicationController
 
   def show
     @team = Team.find(params[:id])
+    @schedules = Schedule.where("home_team_id = ?", params[:id]).or(Schedule.where("away_team_id = ?", params[:id]))
   end
 
   def update

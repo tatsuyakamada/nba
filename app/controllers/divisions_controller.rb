@@ -1,4 +1,5 @@
 class DivisionsController < ApplicationController
+  before_action :admin_member
 
   def new
     @conferences = Conference.all
@@ -16,6 +17,7 @@ class DivisionsController < ApplicationController
   end
 
   def edit
+    @conferences = Conference.all
     @division = Division.find(params[:id])
   end
 

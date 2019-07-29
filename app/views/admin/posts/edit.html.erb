@@ -1,0 +1,19 @@
+<% @page_title = "ブログ編集" %>
+<h1><%= @page_title %></h1>
+
+<%= form_for @post do |f| %>
+<%= render 'layouts/error_messages', model: f.object %>
+<table>
+<tr>
+  <th><%= f.label :title %></th>
+  <td><%= f.text_field :title, :size=>"60x5" %></td>
+</tr>
+<tr>
+  <th><%= f.label :body %></th>
+  <td><%= f.text_area :body, :size=>"60x15" %></td>
+</tr>
+</table>
+
+<div><%= f.submit "更新", { method: :post} %></div>
+<%= link_to "削除", @post, method: :delete, data: { confirm: "削除しますか?"} %>
+<% end %>

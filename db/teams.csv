@@ -1,0 +1,29 @@
+id,team_name,establishment,home_court,owner,division_id
+3,Minnesota Timberwolves,1989/1/1,Target Center,Glen Taylor,1
+4,Oklahoma City Thunder,1967/1/1,Chesapeake Energy Arena,Clay Bennett ,1
+5,Portland Trail Blazers,1970/1/1,Moda Center,Paul Allen,1
+6,Utah Jazz,1974/1/1,Vivint Smart Home Arena,Gail Miller,1
+7,Golden State Warriors,1946/1/1,Chase Center,Joe Lacob ,2
+8,Los Angeles Clippers,1970/1/1,Staples Center,Steven Ballmer,2
+9,Los Angeles Lakers,1946/1/1,Staples Center,Jeanie Buss,2
+10,Phoenix Suns,1968/1/1,Talking Stick Resort Arena,Robert Sarver ,2
+11,Sacramento Kings,1945/1/1,Golden 1 Center,Vivek Ranadivé,2
+12,Dallas Mavericks,1980/1/1,American Airlines Center,Mark Cuban,3
+13,Houston Rockets,1967/1/1,Toyota Center,Tilman Fertitta,3
+14,Memphis Grizzlies,1995/1/1,FedExForum,Robert Pera,3
+15,New Orleans Pelicans,1988/1/1,Smoothie King Center,Gayle Benson,3
+16,San Antonio Spurs,1967/1/1,AT&T Center,Peter Holt,3
+17,Boston Celtics,1946/1/1,TD Garden,Wyc Grousbeck,4
+18,Brooklyn Nets,1967/1/1,Barclays Center,Mikhail Prokhorov,4
+19,New York Knicks,1946/1/1,Madison Square Garden,Madison Square Garden,4
+20,Philadelphia 76ers,1946/1/1,Wells Fargo Center,Joshua Harris,4
+21,Toronto Raptors,1995/1/1,Scotiabank Arena,The Toronto Maple Leafs,4
+22,Chicago Bulls,1966/1/1,United Center,Jerry Reinsdorf,5
+23,Cleveland Cavaliers,1970/1/1,Quicken Loans Arena,Dan Gilbert ,5
+24,Detroit Pistons,1941/1/1,Little Caesars Arena,Tom Gores,5
+25,Indiana Pacers,1967/1/1,Bankers Life Fieldhouse,Herbert Simon,5
+26,Milwaukee Bucks,1968/1/1,Fiserv Forum,Wes Edens,5
+27,Charlotte Hornets,2004/1/1,Spectrum Center,Michael Jordan,6
+28,Miami Heat,1988/1/1,American Airlines Arena,Micky Arison,6
+29,Orlando Magic,1989/1/1,Amway Center,Richard DeVos,6
+30,Washington Wizards,1961/1/1,Capital One Arena,Ted Leonsis,6

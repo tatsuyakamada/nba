@@ -2,6 +2,7 @@
 <h1><%= @page_title %></h1>
 
 <h2>基本情報</h2>
+<%= image_tag @player.player_image.to_s, :size => '200x200' %>
 <table>
   <tr>
     <th>選手名</th>
@@ -41,19 +42,19 @@
     <th>契約開始日</th>
     <th>契約終了日</th>
   </tr>
-<% @team_player.each do |team_player| %>
+<% @team_player.each_with_index do |team_player, idx| %>
   <tr>
-    <td><%= link_to team_player.id, edit_player_team_player_url(@player, team_player) %></td>
-    <td><%= link_to team_player.team.team_name, :team %></td>
+    <td><%= link_to idx + 1, edit_admin_player_team_player_url(@player, team_player) %></td>
+    <td><%= link_to team_player.team.team_name, team_path(team_player.team_id) %></td>
     <td><%= team_player.contract_start %></td>
     <td><%= team_player.contract_period %></td>
   </tr>
 <% end %>
 </table>
 
-
-<button type="button"><%= link_to "選手契約登録", new_player_team_player_url(@player) %></button>
 <button type="button"><%= link_to "選手一覧", :players %></button>
-<% if logged_in? %>
-  <button type="button"><%= link_to "編集", :edit_player %></button>
+
+<% if admin_member %>
+  <button type="button"><%= link_to "選手契約登録", new_admin_player_team_player_url(@player) %></button>
+  <button><%= link_to "編集", :edit_player %></button>
 <% end %>

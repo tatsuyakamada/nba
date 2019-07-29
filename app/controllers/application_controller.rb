@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :logged_in?, :current_member
+  helper_method :logged_in?, :current_member, :admin_member
 
     def log_in(member)
       session[:member_id] = member.id
@@ -16,6 +16,10 @@ class ApplicationController < ActionController::Base
     def log_out
       session.delete(:member_id)
       @current_member == nil
+    end
+
+    def admin_member
+      current_member.administrator? if current_member
     end
 
 end

@@ -1,30 +1,31 @@
 <% @page_title = "TEAMS" %>
 <h1><%= @page_title %></h1>
 
-<button type="button"><%= link_to "チーム登録", :new_team %></button>
-
-<div class="team-index">
-
-<table>
-  <tr>
-    <th>カンファレンス</th>
-    <th>ディビジョン</th>
-    <th>チーム名</th>
-    <th>設立</th>
-    <th>本拠地</th>
-    <th>オーナー</th>
-    <th>所属選手数</th>
-  </tr>
-<% @teams.each do |team|%>
-  <tr>
-    <td><%= team.division.conference.conference_name %></td>
-    <td><%= team.division.division_name %></td>
-    <td><%= link_to team.team_name, team %></td>
-    <td><%= team.establishment.strftime ("%Y年") %></td>
-    <td><%= team.home_court %></td>
-    <td><%= team.owner%></td>
-    <td><%= team.current_player_number %></td>
-  </tr>
+<% @conferences.each do |conference| %>
+  <h3 id="conference_name"><%= conference.conference_name %></h3>
+  <% @divisions = Division.where("conference_id = ?", conference.id) %>
+  <% @divisions.each do |division| %>
+    <h4 id="division_name"><%= division.division_name %></h4>
+    <% @teams = Team.where("division_id = ?", division.id) %>
+    <div class="team-index">
+      <table>
+        <tr>
+          <th id="team-name">チーム名</th>
+          <th id="establishment">設立</th>
+          <th id="home-court">本拠地</th>
+          <th id="owner">オーナー</th>
+          <th id="current-player-number">所属選手</th>
+        </tr>
+        <% @teams.each do |team|%>
+          <tr>
+            <td><%= link_to team.team_name, team %></td>
+            <td id="establishment"><%= team.establishment.strftime ("%Y年") %></td>
+            <td><%= team.home_court %></td>
+            <td><%= team.owner%></td>
+            <td id="current-player-number"><%= team.current_player_number %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  <% end %>
 <% end %>
-</table>
-</div>

@@ -12,10 +12,45 @@
  *
  *= require_self
  */
-.team-index table {
-  margin: 0 auto;
+
+#conference_name {
+  margin-top: 20px;
 }
 
+
+#division_name {
+  margin: 10px 15px 0 15px;
+}
+
+.team-index table {
+  margin-left: 15px;
+}
+
+.team-index th {
+  text-align: center;
+}
+
+#team-name {
+  width: 200px;
+}
+
+#establishment {
+  width: 100px;
+  text-align: center;
+}
+
+#home-court {
+  width: 200px;
+}
+
+#owner {
+  width: 200px;
+}
+
+#current-player-number {
+  width: 100px;
+  text-align: center;
+}
 
 
 .team-info {
@@ -23,24 +58,12 @@
   padding: 20px;
 }
 
-.team-player {
+.schedule {
   margin-left: 30px;
   padding: 20px;
 }
 
-table{
-  border-collapse:collapse;
-}
-td,th{
-  padding:10px;
-}
-th{
-  color:#fff;
-  background:#005ab3;
-}
-table tr:nth-child(odd){
-  background:#e6f2ff;
-}
-td{
-  border-bottom:2px solid #80bcff;
+.team-player {
+  margin-left: 30px;
+  padding: 20px;
 }

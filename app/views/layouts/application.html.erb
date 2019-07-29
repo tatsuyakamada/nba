@@ -18,11 +18,10 @@
         <div class="menu">
           <a><%= link_to "ニュース", :articles %></a>
           <a><%= link_to "ブログ", :posts %></a>
-          <a><%= link_to "カンファレンス", :conferences %></a>
           <a><%= link_to "チーム", :teams %></a>
-          <a><%= link_to "選手", :players %></a>
+          <a><%= link_to "スケジュール", :schedules %></a>
+          <a><%= link_to "プレイヤー", :players %></a>
           <a><%= link_to "ヘッドコーチ", :headcoaches %></a>
-          <a><%= link_to "ポジション", :positions %></a>
           <a><%= link_to "会員一覧", :members %></a>
         </div>
       </div>
@@ -30,6 +29,7 @@
         <div class="member">
           <% if logged_in? %>
             <a><%= link_to current_member.full_name + " さん", current_member %></a>
+            <a><%= link_to "管理者メニュー", "/admin" %></a>
             <a><%= link_to "ログアウト", "/logout" %></a>
           <% else %>
             <a><%= link_to "新規登録", :new_member %></a>
@@ -41,9 +41,11 @@
   </header>
 
   <body>
+    <div class="containar">
     <% if flash[:notice] %>
       <%= flash[:notice] %>
     <% end %>
     <%= yield %>
+    </div>
   </body>
 </html>

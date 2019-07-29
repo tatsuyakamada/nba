@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_10_042512) do
+ActiveRecord::Schema.define(version: 2019_07_12_073253) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title", null: false
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2019_06_10_042512) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "member_id"
+    t.string "article_image"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -51,6 +52,7 @@ ActiveRecord::Schema.define(version: 2019_06_10_042512) do
     t.string "college", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "headcoach_image"
   end
 
   create_table "members", force: :cascade do |t|
@@ -103,6 +105,19 @@ ActiveRecord::Schema.define(version: 2019_06_10_042512) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "member_id"
+  end
+
+  create_table "schedules", force: :cascade do |t|
+    t.date "match_day", null: false
+    t.string "venue", null: false
+    t.integer "home_score"
+    t.integer "away_score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "home_team_id"
+    t.integer "away_team_id"
+    t.index ["away_team_id"], name: "index_schedules_on_away_team_id"
+    t.index ["home_team_id"], name: "index_schedules_on_home_team_id"
   end
 
   create_table "team_players", force: :cascade do |t|

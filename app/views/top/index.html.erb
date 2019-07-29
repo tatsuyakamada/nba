@@ -1,4 +1,5 @@
 <% @page_title = "NBA STATS" %>
+
 <h1><%= @page_title %></h1>
 
 <div id="news_topics">
@@ -11,9 +12,10 @@
     <% articles.each do |article| %>
       <div class="news">
         <h4><%= link_to article.title.truncate(30), article %></h4>
-        <a>掲載日 <%= article.released_at.strftime("%Y年%m月%d日") %></a>
+        <a class="expired-day">掲載日<a/><a class="post-date"> <%= article.released_at.strftime("%Y年%m月%d日") %></a>
       </div>
     <% end %>
+    <bbutton class="btn btn-info index"><%= link_to "記事一覧", :articles %></button>
 </div>
 
 <div id="blog_topics">
@@ -26,7 +28,8 @@
     <% posts.each do |post| %>
       <div class="blog">
         <h4><%= link_to post.title.truncate(30), post %></h4>
-        <a>投稿者 <%= post.member.full_name %></a>
+        <a class="contributor">投稿者 <%= link_to post.member.full_name, post.member %></a>
       </div>
     <% end %>
+    <button class="btn btn-info index"><%= link_to "ブログ一覧", :posts %></button>
 </div>

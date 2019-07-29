@@ -1,0 +1,21 @@
+<% @page_title = "スケジュール" %>
+<h1><%= @page_title %></h1>
+
+<table>
+  <tr>
+    <th>試合日</th>
+    <th>ホームチーム</th>
+    <th>スコア</th>
+    <th>アウェイチーム</th>
+    <th>開催地</th>
+  </tr>
+  <% @schedules.each do |schedule| %>
+  <tr>
+    <td><%= schedule.match_day %></td>
+    <td><%= link_to schedule.home_team.team_name, team_path(schedule.home_team) %></td>
+    <td id="result"><span><%= schedule.home_score.to_s + " - " + schedule.away_score.to_s %></span></td>
+    <td><%= link_to schedule.away_team.team_name, team_path(schedule.away_team) %></td>
+    <td><%= schedule.venue %></td>
+  </tr>
+  <% end %>
+</table>

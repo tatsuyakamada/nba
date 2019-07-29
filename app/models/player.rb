@@ -1,4 +1,6 @@
 class Player < ApplicationRecord
+  mount_uploader :player_image, PlayerImageUploader
+
   has_and_belongs_to_many :positions
   has_many :team_players
 
@@ -16,5 +18,5 @@ class Player < ApplicationRecord
       where("contract_start <= ?", now).
       where("contract_period > ?", now)
   end
-  
+
 end

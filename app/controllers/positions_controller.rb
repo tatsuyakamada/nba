@@ -1,4 +1,5 @@
 class PositionsController < ApplicationController
+  before_action :admin_member
 
   def index
     @positions = Position.all
@@ -46,7 +47,7 @@ class PositionsController < ApplicationController
   private def position_params
     params.require(:position).permit (
       :position_name
-    )  
+    )
   end
 
 

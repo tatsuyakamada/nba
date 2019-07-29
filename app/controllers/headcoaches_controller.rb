@@ -35,7 +35,7 @@ class HeadcoachesController < ApplicationController
     end
   end
 
-  def destoy
+  def destroy
     @headcoach = Headcoach.find(params[:id])
     if @headcoach.destroy
       redirect_to :headcoaches
@@ -46,6 +46,7 @@ class HeadcoachesController < ApplicationController
 
   private def headcoach_params
     params.require(:headcoach).permit(
+      :headcoach_image,
       :first_name,
       :last_name,
       :birthday,
