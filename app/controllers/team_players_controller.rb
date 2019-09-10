@@ -29,7 +29,7 @@ class TeamPlayersController < ApplicationController
     @teams = Team.all
     @team_player.update(team_player_params)
     if @team_player.save
-      redirect_to @player
+      redirect_to "/players/#{@team_player.player_id}"
     else
       render "edit"
     end

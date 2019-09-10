@@ -1,4 +1,5 @@
 class ConferencesController < ApplicationController
+  before_action :admin_member
 
   def index
     @conferences = Conference.all
@@ -49,7 +50,5 @@ class ConferencesController < ApplicationController
     params.require(:conference).permit(
       :conference_name
     )
-
   end
-
 end

@@ -12,7 +12,7 @@
  *
  *= require_self
  *= require_tree .
-  */
+ */
 
  @import "bootstrap";
 
@@ -22,31 +22,32 @@ font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ãƒ’ã
 }
 
 header {
-  width: auto;
   height: 80px;
   background-color: #1C428A;
   font-weight: bold;
-  width: 98%;
-  margin: auto;
+  width: 100%;
+  position: relative;
 }
 
 #header {
   float: left;
-  margin: auto;
-  padding: 5px;
-  width: 95%;
-
+  width: 100%;
+  position: absolute;
 }
 
 #header div {
   display: inline-block;
   vertical-align: middle;
-  margin: 5px;
+}
+
+.left_menu {
+  margin-top: 18px;
 }
 
 #header a {
   color: white;
-  text-decoration: none;
+  margin-right: 2px;
+  font-size: 18px;
 }
 
 #logo {
@@ -56,4 +57,54 @@ header {
 
 .right_menu {
   float: right;
+  margin-top: 28px;
+  margin-right: 10px;
+}
+
+body {
+  margin: 0 ;
+  background-color: #EEEEEE;
+}
+
+.containar {
+  padding: 20px;
+}
+
+h1  {
+  font-size: 32px;
+}
+
+h2  {
+  font-size: 22px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+table{
+  border-collapse:collapse;
+}
+td,th{
+  padding:10px;
+}
+th{
+  color:#fff;
+  background:#005ab3;
+}
+
+
+table tr:nth-child(even){
+  background:#fff;
+}
+
+table tr:nth-child(odd){
+  background:#e6f2ff;
+}
+td{
+  border-bottom:2px solid #80bcff;
+}
+
+.top-btn {
+  margin-top: 10px;
 }

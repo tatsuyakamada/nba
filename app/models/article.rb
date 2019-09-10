@@ -1,4 +1,6 @@
 class Article < ApplicationRecord
+  mount_uploader :article_image, ArticleImageUploader
+
   belongs_to :member
 
   validates :title, presence: true, length: {minimum: 4, maximum: 40}, uniqueness: true
@@ -10,7 +12,7 @@ class Article < ApplicationRecord
     self.released_at < self.expired_at
   end
 
-  scope :open_article, -> do
+  scope :public_article, -> do
     now = Time.now
       where("released_at <= ?", now).
       where("expired_at > ?", now).

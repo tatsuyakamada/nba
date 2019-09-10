@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 
   def create
     @member = Member.find_by(email: params[:session][:email])
-    if @member && @member.authenticate(params[:session][:password])
+    if @member &.authenticate(params[:session][:password])
       log_in(@member)
       redirect_to "/"
     else

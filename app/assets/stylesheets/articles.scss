@@ -2,14 +2,53 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-.article_title {
-  padding: 0.25em 0.5em;/*上下 左右の余白*/
-  color: #494949;/*文字色*/
-  background: transparent;/*背景透明に*/
-  border-left: solid 5px #7db4e6;/*左線*/
+.article-index {
+  display: block;
+  background-color: white;
+  margin-top: 10px;
+  padding: 10px;
+  height: 280px;
 }
 
-.title_form {
-  width: 1000px;
+.article-title {
+  margin-bottom: 20px;
+}
+
+.article-title span {
+    border-bottom: 3px #87CEEB solid;
+}
+
+.article-index p {
+  font-size: 16px;
+}
+
+.article-show {
+  background-color: white;
+  padding: 15px;
+}
+
+.article-image {
+  margin-bottom: 20px;
+}
+
+.article-index-image {
+  display: block;
+  width: 300px;
+  float: left;
+  margin: 10px 0;
+}
+
+.article-content {
+  display: inline-block;
+  float: left;
+  height: 220px;
+  width: 75%;
+}
+
+.expired {
+  display: block;
+  height: 35px;
+  width: 75%;
+  float: right;
+  text-align: right;
 }
