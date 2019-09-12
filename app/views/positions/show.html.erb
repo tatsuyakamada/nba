@@ -1,13 +1,13 @@
-<% @page_title = "ポジション"%>
+<% @page_title = t('page_action.show', name: Position.model_name.human) %>
 <h1><%= @page_title %></h1>
 
 <table>
   <tr>
-    <th>ポジション</th>
+    <th><%= t('.position') %></th>
     <td><%= @position.position_name %></td>
   </tr>
 </table>
 
 
-<button type="button"><%= link_to "ポジション一覧", :positions %></button>
-<button type="button"><%= link_to "編集", :edit_position %></button>
+<button type="button"><%= link_to t('page_action.index', name: Position.model_name.human), :positions %></button>
+<button type="button"><%= link_to t('button.edit'), :edit_position %></button>

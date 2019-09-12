@@ -1,13 +1,13 @@
-<% @page_title = "選手契約一覧" %>
+<% @page_title = t('page_action.index', name: TeamPlayer.model_name.human) %>
 <h1><%= @page_title %></h1>
 
 <% @team_players.each do |team_player| %>
 <table>
   <tr>
-    <th>選手名</th>
-    <th>契約チーム</th>
-    <th>契約開始日</th>
-    <th>契約終了日</th>
+    <th><%= t('.name') %></th>
+    <th><%= t('.contract_team') %></th>
+    <th><%= t('.contract_start') %></th>
+    <th><%= t('.contract_period') %></th>
   </tr>
 </table>
 

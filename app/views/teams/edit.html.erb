@@ -1,4 +1,4 @@
-<% @page_title = "チーム編集" %>
+<% @page_title = t('page_action.edit', name: Team.model_name.human) %>
 <%= @page_title %>
 
 <%= form_for @team do |f| %>
@@ -35,7 +35,7 @@
     <th><%= f.label :owner %></th>
     <td><%= f.text_field :owner %></td>
   </tr>
-  <th><%= f.submit "更新" %></th>
   </table>
+  <button><%= t('button.update') %></button>
 
 <% end %>

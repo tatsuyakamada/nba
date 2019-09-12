@@ -1,0 +1,60 @@
+<% @page_title = t('page_action.show', name: Player.model_name.human) %>
+<h1><%= @page_title %></h1>
+
+<h2><%= t('.info') %></h2>
+<%= image_tag @player.player_image.to_s, :size => '200x200' %>
+<table>
+  <tr>
+    <th><%= t('.player') %></th>
+    <td><%= @player.full_name %></td>
+  </tr>
+  <tr>
+    <th><%= t('.number') %></th>
+    <td><%= @player.number %></td>
+  </tr>
+  <tr>
+    <th><%= t('.position') %></th>
+    <td><%= @player.positions.sort.map(&:position_name).join('/') %></td>
+  </tr>
+  <tr>
+    <th><%= t('.birthday') %></th>
+    <td><%= @player.birthday.strftime("%Y年 %m月 %d日") %></td>
+  </tr>
+  <tr>
+    <th><%= t('.height') %></th>
+    <td><%= @player.height %></td>
+  </tr>
+  <tr>
+    <th><%= t('.weight') %></th>
+    <td><%= @player.weight %></td>
+  </tr>
+  <tr>
+    <th><%= t('.college') %></th>
+    <td><%= @player.college %></td>
+  </tr>
+</table>
+
+<h2><%= t('.contract_info') %></h2>
+<table>
+  <tr>
+    <th><%= t('.no') %></th>
+    <th><%= t('.contract_team') %></th>
+    <th><%= t('.contract_start') %></th>
+    <th><%= t('.contract_period') %></th>
+  </tr>
+<% @team_player.each do |team_player| %>
+  <tr>
+    <td><%= link_to team_player.id, edit_admin_player_team_player_url(@player, team_player) %></td>
+    <td><%= link_to team_player.team.team_name, team_path(team_player.team_id) %></td>
+    <td><%= team_player.contract_start %></td>
+    <td><%= team_player.contract_period %></td>
+  </tr>
+<% end %>
+</table>
+
+<button type="button"><%= link_to t('page_action.index', name: Player.model_name.human), :players %></button>
+
+<% if admin_member %>
+  <button type="button"><%= link_to t('button.new', name: Player.model_name.human), new_admin_player_team_player_url(@player) %></button>
+  <button><%= link_to t('button.edit', name: Player.model_name.human), :edit_player %></button>
+<% end %>

@@ -1,0 +1,29 @@
+<% @page_title = t('page_action.index', name: Player.model_name.human) %>
+<h1><%= @page_title %></h1>
+
+<button type="button"><%= link_to t('page_action.new', name: Player.model_name.human), :new_player %></button>
+<button type="button"><%= link_to t('.import'), :player_import_admin_players %></button>
+
+
+<table>
+  <tr>
+    <th><%= t('.name') %></th>
+    <th><%= t('.number') %></th>
+    <th><%= t('.position') %></th>
+    <th><%= t('.age') %></th>
+    <th><%= t('.height') %></th>
+    <th><%= t('.weight') %></th>
+    <th><%= t('.college') %></th>
+  </tr>
+<% @players.each do |player| %>
+  <tr>
+    <td><%= link_to player.full_name, player %></td>
+    <td><%= player.number %></td>
+    <td><%= player.positions.sort.map(&:position_name).join('/') %></td>
+    <td><%= player.age %></td>
+    <td><%= player.height %></td>
+    <td><%= player.weight %></td>
+    <td><%= player.college %></td>
+  </tr>
+<% end %>
+</table>

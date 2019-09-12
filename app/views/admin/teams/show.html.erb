@@ -1,0 +1,87 @@
+<% @page_title = @team.team_name %>
+<h1><%= @page_title %></h1>
+
+<div class="team-info">
+<h3><%= t('.info') %></h3>
+<table>
+  <%= image_tag @team.team_image.to_s, :size => '200x200' %>
+  <tr>
+    <th><%= t('.conference') %></th>
+    <th><%= @team.division.conference.conference_name %></th>
+  </tr>
+  <tr>
+    <th><%= t('.division') %></th>
+    <td><%= @team.division.division_name %></td>
+  </tr>
+  <tr>
+    <th><%= t('.team_name') %></th>
+    <td><%= @team.team_name %></td>
+  </tr>
+  <tr>
+    <th><%= t('.establishment') %></th>
+    <td><%= @team.establishment %></td>
+  </tr>
+  <tr>
+    <th><%= t('.home_court') %></th>
+    <td><%= @team.home_court %> </td>
+  </tr>
+  <tr>
+    <th><%= t('.owner') %></th>
+    <td><%= @team.owner %></td>
+  </tr>
+</table>
+</div>
+
+<div class="schedule">
+  <table>
+    <tr>
+      <th><%= t('.match_day') %></th>
+      <th><%= t('.home_team') %></th>
+      <th><%= t('.score') %></th>
+      <th><%= t('.away_team') %></th>
+      <th><%= t('.venue') %></th>
+      <th><%= t('.edit') %></th>
+    </tr>
+    <% @schedules.each do |schedule| %>
+    <tr>
+      <td><%= schedule.match_day %></td>
+      <td><%= link_to schedule.home_team.team_name, team_path(schedule.home_team) %></td>
+      <td id="result"><span><%= schedule.home_score.to_s + " - " + schedule.away_score.to_s %></span></td>
+      <td><%= link_to schedule.away_team.team_name, team_path(schedule.away_team) %></td>
+      <td><%= schedule.venue %></td>
+      <td><%= link_to t('edit'), edit_admin_schedule_path(schedule.id) %></td>
+    </tr>
+  </table>
+</div>
+
+<div class="team-player">
+<h3><%= t('.team_player') %></h3>
+<table>
+  <tr>
+    <th><%= t('.player_name') %></th>
+    <th><%= t('.number') %></th>
+    <th><%= t('.position') %></th>
+    <th><%= t('.age') %></th>
+    <th><%= t('.height') %></th>
+    <th><%= t('.weight') %></th>
+    <th><%= t('.college') %></th>
+  </tr>
+<% @team.team_players.each do |team_player| %>
+  <tr>
+    <td><%= link_to team_player.full_name, player_path(team_player.player) %></td>
+    <td><%= team_player.player.number %></td>
+    <td><%= team_player.player.positions.sort.map(&:position_name).join('/') %></td>
+    <td><%= team_player.player.age %></td>
+    <td><%= team_player.player.height %></td>
+    <td><%= team_player.player.weight %></td>
+    <td><%= team_player.player.college %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+
+
+<button type="button"><%= link_to t('page_action.index', name: Team.model_name.human), :teams %></button>
+<% if logged_in? %>
+  <button type="button"><%= link_to t('button.edit'), :edit_team %></button>
+<% end %>

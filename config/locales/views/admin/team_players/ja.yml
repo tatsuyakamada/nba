@@ -1,0 +1,16 @@
+ja:
+  base: &base
+    team_player:
+    player_id: 選手
+    name: 選手名
+    contract_team: 契約チーム
+    team_id: 契約チーム
+    contract_start: 契約開始日
+    contract_period: 契約終了日
+  team_players:
+    index:
+      <<: *base
+    edit:
+      <<: *base
+    new:
+      <<: *base

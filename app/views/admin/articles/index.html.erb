@@ -1,0 +1,16 @@
+<% @page_title = t('page_action.index', name: Article.model_name.human) %>
+<h1><%= @page_title %></h1>
+
+<button type="button"><%= link_to t('button.new', name: Article.model_name.human), :new_admin_article %></button>
+
+<div>
+  <% @articles.each do |article| %>
+    <div class="article-index">
+      <h3><%= link_to article.title, article %></h3>
+      <p><%= simple_format(article.body.truncate(200)) %></p>
+      <div><%= t('.author') %>  <%= link_to article.member.full_name, article.member %></div>
+      <div><%= t('.released_at') %>　<%= article.released_at.strftime("%Y年 %m月 %d日 %H時%M分") %></div>
+      <div><%= t('.expired_at') %>　<%= article.expired_at.strftime("%Y年 %m月 %d日 %H時%M分") %></div>
+    </div>
+  <% end %>
+</div>

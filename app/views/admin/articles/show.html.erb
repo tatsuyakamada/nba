@@ -1,0 +1,11 @@
+<% @page_title = t('page_action.show', name: Article.model_name.human) %>
+<h1><%= @page_title %></h1>
+
+<h2><%= simple_format(@article.title) %></h2>
+<p><%= simple_format(@article.body) %></p>
+<p><%= t('.author') %>　<%= link_to @member.full_name, @member %></p>
+
+<button type="button"><%= link_to t('page_action.index', name: Article.model_name.human), :articles %></button>
+<% if logged_in? %>
+  <button type="button"><%= link_to t('page_action.edit', name: Article.model_name.human), :edit_article %></button>
+<% end %>

@@ -1,0 +1,48 @@
+<% @page_title = t('page_action.show', name: Member.model_name.human) %>
+<h1><%= @page_title %></h1>
+
+<h2><%= t('.profile') %></h2>
+<table>
+  <tr>
+    <th><%= t('.name') %></th>
+    <td><%= @member.full_name %></td>
+  </tr>
+  <tr>
+    <th><%= t('.name_call') %></th>
+    <td><%= @member.full_name_call %></td>
+  </tr>
+  <tr>
+    <th><%= t('.email') %></th>
+    <td><%= @member.email %></td>
+  </tr>
+  <tr>
+    <th><%= t('.birthday') %></th>
+    <td><%= @member.birthday.strftime("%Y年 %m月 %d日") %></td>
+  </tr>
+  <tr>
+  <th><%= t('.sex') %></th>
+    <% if @member.sex == 0  %>
+    <td><%= t('.male') %></td>
+    <% else %>
+    <td><%= t('.female') %></td>
+    <% end %>
+  </tr>
+</table>
+
+<div class="my-post">
+  <h2><%= t('.member_posts') %></h2>
+  <a><%= t('.posts_count') %>: <%= posts_count %> 件</a>
+  <% @posts.each do |post| %>
+  <div>
+    <h4 class="post_title"><%= link_to post.title, post %></h4>
+    <p class="post_body"><%= simple_format(post.body.truncate(50)) %></p>
+  </div>
+  <% end %>
+</div>
+
+
+
+<button type="button"><%= link_to t('button.index', name: Member.model_name.human), :members %></button>
+<% if logged_in? %>
+  <button type="button"><%= link_to t('button.edit', name: Member.model_name.human), :edit_member %></button>
+<% end %>

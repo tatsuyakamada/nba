@@ -1,0 +1,39 @@
+<% @page_title = t('page_action.show', name: Post.model_name.human) %>
+<h1><%= @page_title %></h1>
+
+<h2><%= simple_format(@post.title) %></h2>
+<p><%= simple_format(@post.body) %></p>
+<p>投稿者　<%= link_to @member.full_name, @member %></p>
+
+<div>
+  <h2><%= t('.comments') %></h2>
+  <% @comments.each do |comment| %>
+    <p><%= comment.body %></p>
+    <p><%= t('.author') %> <%= link_to comment.member.full_name, comment.member %> </p>
+    <p><%= comment.created_at.strftime("%Y年 %m月 %d日 %H時%M分") %></p>
+    <% if current_member.id == comment.member_id %>
+      <p><%= link_to t('button.delete'), post_comment_url(@post, comment) , method: :delete %></p>
+    <% end %>
+  <% end %>
+</div>
+
+<div id="comment-modal">
+  <% if logged_in? %>
+  <%= form_for ([@post, @comment]) do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
+    <th><%= f.label :body %></th>
+    <td><%= f.text_area :body %></td>
+    <%= f.hidden_field :post_id, value: @post.id %>
+    <%= f.hidden_field :member_id, value: current_member.id %>
+  </div>
+    <%= f.submit t('.new_comment') %>
+  <% end %>
+<% end %>
+<button><%= link_to t('page_action.index', name: Post.model_name.human, :posts %></button>
+<% if logged_in? %>
+  <button><%= link_to t('button.edit'), :edit_post %></button>
+<% end %>
+
+<script>
+
+</script>

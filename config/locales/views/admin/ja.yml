@@ -1,0 +1,5 @@
+ja:
+  admin:
+    index:
+      admin_page: 管理者ページ
+      admin_menu: "%{name}管理"

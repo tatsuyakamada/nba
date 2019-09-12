@@ -1,4 +1,4 @@
-<% @page_title = "ディビジョン登録" %>
+<% @page_title = t('page_action.new', name: Division.model_name.human) %>
 <h1><%= @page_title %></h1>
 
 <%= form_for @division do |f| %>
@@ -11,8 +11,6 @@
     <th><%= f.label :division_name %></th>
     <td><%= f.text_field :division_name %></td>
   </tr>
-  <tr>
-    <th><%= f.submit "登録" %></th>
-  </tr>
 </table>
+<button><%= t('button.new') %></button>
 <% end %>

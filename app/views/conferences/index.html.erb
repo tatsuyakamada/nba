@@ -1,18 +1,19 @@
-<% @page_title = "カンファレンス一覧" %>
+<% @page_title = t('.conferences') %>
 <h2><%= @page_title %></h2>
 
-<button type="button"><%= link_to "新規登録", :new_conference %></button>
+<button type="button"><%= link_to t('button.new'), :new_conference %></button>
 
 <table>
   <tr>
-    <th>カンファレンス</th>
-    <th>ディビジョン数</th>
-    <th>チーム数</th>
+    <th><%= t('.name') %></th>
+    <th><%= t('.division_number') %></th>
+    <th><%= t('.team_number') %></th>
   </tr>
 <% @conferences.each do |conference| %>
   <tr>
     <td><%= link_to conference.conference_name, conference %></td>
     <td><%= conference.division_number %></td>
+    <td><%= conference.team_number %></td>
   </tr>
   <% end %>
 </table>

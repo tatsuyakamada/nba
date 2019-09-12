@@ -1,0 +1,32 @@
+<% @page_title = t('page_action.new', name: TeamPlayer.model_name.human)%>
+<h1><%= @page_title %></h1>
+
+<%= form_for ([:admin, @player, @team_player]) do |f| %>
+<%= render 'layouts/error_messages', model: f.object %>
+<table>
+  <tr>
+    <th><%= f.label :team_id %></th>
+    <td><%= f.collection_select(:team_id, @teams, :id, :team_name) %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :contract_start %></th>
+    <td><%= f.date_select :contract_start, {
+          start_year: 1990,
+          end_year: 2025,
+          default: Time.zone.today
+        }
+          %></td>
+  </tr>
+  <tr>
+    <th><%= f.label :contract_period %></th>
+    <td><%= f.date_select :contract_period, {
+          start_year: 1990,
+          end_year: 2025,
+          default: Time.zone.today
+        }
+          %></td>
+  </tr>
+</table>
+<%= f.hidden_field :player_id, value: @player.id %>
+<button><%= t('button.new', name: TeamPlayer.model_name.human) %></button>
+<% end %>

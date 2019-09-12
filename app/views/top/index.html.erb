@@ -1,8 +1,9 @@
 <% @page_title = "NBA STATS" %>
+
 <h1><%= @page_title %></h1>
 
 <div id="news_topics">
-  <h2>新着記事一覧</h2>
+  <h2><%= t('.new_articles') %></h2>
     <% if logged_in? %>
       <% articles = Article.member_article.order(released_at: :desc).limit(5) %>
     <% else %>
@@ -11,13 +12,14 @@
     <% articles.each do |article| %>
       <div class="news">
         <h4><%= link_to article.title.truncate(30), article %></h4>
-        <a>掲載日 <%= article.released_at.strftime("%Y年%m月%d日") %></a>
+        <a class="expired-day"><%= t('.released_at') %></a><a class="post-date"> <%= article.released_at.strftime("%Y年%m月%d日") %></a>
       </div>
     <% end %>
+    <button class="btn btn-info index"><%= link_to t('page_action.index', name: Article.model_name.human), :articles %></button>
 </div>
 
 <div id="blog_topics">
-  <h2>新着ブログ一覧</h2>
+  <h2><%= t('.new_posts') %></h2>
     <% if logged_in? %>
       <% posts = Post.all.order(created_at: :desc).limit(5) %>
     <% else %>
@@ -26,7 +28,8 @@
     <% posts.each do |post| %>
       <div class="blog">
         <h4><%= link_to post.title.truncate(30), post %></h4>
-        <a>投稿者 <%= post.member.full_name %></a>
+        <a class="contributor"><%= t('.author') %> <%= link_to post.member.full_name, post.member %></a>
       </div>
     <% end %>
+    <button class="btn btn-info index"><%= link_to t('page_action.index', name: Post.model_name.human), :posts %></button>
 </div>

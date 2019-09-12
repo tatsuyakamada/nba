@@ -1,0 +1,15 @@
+<% @page_title = t('page_action.index', name: Post.model_name.human) %>
+<h1><%= @page_title %></h1>
+
+<button type="button"><%= link_to t('page_action.new', name: Post.model_name.human), :new_post %></button>
+
+<div>
+  <% @posts.each do |post| %>
+  <div>
+    <h3 class="post_title"><%= link_to post.title, post %></h3>
+    <p class="post_body"><%= simple_format(post.body.truncate(200)) %></p>
+    <div><%= t('.author') %>  <%= link_to post.member.full_name, post.member %></div>
+    <div><%= t('.released_at') %> <%= post.created_at.strftime(" %Y年 %m月 %d日 %H時%M分 ") %></div>
+  </div>
+  <% end %>
+</div>

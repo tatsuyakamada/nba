@@ -1,0 +1,19 @@
+<% @page_title = t('page_action.edit', name: Post.model_name.human) %>
+<h1><%= @page_title %></h1>
+
+<%= form_for @post do |f| %>
+<%= render 'layouts/error_messages', model: f.object %>
+<table>
+<tr>
+  <th><%= f.label :title %></th>
+  <td><%= f.text_field :title, :size=>"60x5" %></td>
+</tr>
+<tr>
+  <th><%= f.label :body %></th>
+  <td><%= f.text_area :body, :size=>"60x15" %></td>
+</tr>
+</table>
+
+<div><%= f.submit t('button.update'), { method: :post} %></div>
+<%= link_to t('button.delete'), @post, method: :delete, data: { confirm: "削除しますか?"} %>
+<% end %>

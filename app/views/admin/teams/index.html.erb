@@ -1,0 +1,33 @@
+<% @page_title =  t('.team') %>
+<h1><%= @page_title %></h1>
+
+<% @conferences.each do |conference| %>
+  <h3 id="conference_name"><%= conference.conference_name %></h3>
+  <% @divisions = Division.where("conference_id = ?", conference.id) %>
+  <% @divisions.each do |division| %>
+    <h4 id="division_name"><%= division.division_name %></h4>
+    <% @teams = Team.where("division_id = ?", division.id) %>
+    <div class="team-index">
+      <table>
+        <tr>
+          <th id="team-name"><%= t('.team_name') %></th>
+          <th id="establishment"><%= t('.establishment') %></th>
+          <th id="home-court"><%= t('.home_court') %></th>
+          <th id="owner"><%= t('.owner') %></th>
+          <th id="current-player-number"><%= t('.team_player') %></th>
+        </tr>
+        <% @teams.each do |team|%>
+          <tr>
+            <td><%= link_to team.team_name, team %></td>
+            <td id="establishment"><%= team.establishment.strftime ("%Y年") %></td>
+            <td><%= team.home_court %></td>
+            <td><%= team.owner%></td>
+            <td id="current-player-number"><%= team.current_player_number %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  <% end %>
+<% end %>
+
+<button><%= link_to t('page_action.new', name: Team.model_name.human), :new_team %></button>

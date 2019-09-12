@@ -1,4 +1,4 @@
-<% @page_title = "カンファレンス編集" %>
+<% @page_title = t('page_action.edit', name: Conference.model_name.human) %>
 <h3><%= @page_title %></h3>
 
 <%= form_for @conference do |f| %>
@@ -8,6 +8,6 @@
       <td><%= f.text_field :conference_name %></td>
     </tr>
   </table>
-  <div><%= f.submit "更新", { method: :post} %></div>
-  <button type="button"><%= link_to "削除", @conference, method: :delete, data: { confirm: "削除しますか?"} %></button>
+  <button><%= t('button.update') %></button>
+  <button type="button"><%= link_to t('button.delete'), @conference, method: :delete, data: { confirm: "削除しますか?"} %></button>
   <% end %>

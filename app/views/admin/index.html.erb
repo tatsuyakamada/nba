@@ -1,0 +1,11 @@
+<% @page_title = t('.admin_page') %>
+<h1><%= @page_title %></h1>
+
+<li><%= link_to t('.admin_menu', name: Conference.model_name.human), :conferences %></li>
+<li><%= link_to t('.admin_menu', name: Team.model_name.human), :admin_teams %></li>
+<li><%= link_to t('.admin_menu', name: Schedule.model_name.human), :admin_schedules %></li>
+<li><%= link_to t('.admin_menu', name: Player.model_name.human), :admin_players %></li>
+<li><%= link_to t('.admin_menu', name: Position.model_name.human), :positions %></li>
+<li><%= link_to t('.admin_menu', name: Article.model_name.human), :admin_articles %></li>
+<li><%= link_to t('.admin_menu', name: Post.model_name.human), :admin_posts %></li>
+<li><%= link_to t('.admin_menu', name: Member.model_name.human), :admin_members %></li>

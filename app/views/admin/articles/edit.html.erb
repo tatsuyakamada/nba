@@ -1,9 +1,13 @@
-<% @page_title = "記事編集" %>
+<% @page_title = t('page_action', name: Article.model_name.human) %>
 <h1><%= @page_title %></h1>
 
-<%= form_for @article do |f| %>
+<%= form_for [:admin, @article] do |f| %>
 <%= render 'layouts/error_messages', model: f.object %>
 <table>
+  <tr>
+    <th><%= f.label :article_image %></th>
+    <td><%= f.file_field :article_image %></td>
+  </tr>
 <tr>
   <th><%= f.label :title %></th>
   <td><%= f.text_field :title, :size=>"60x5" %></td>
@@ -26,6 +30,6 @@
 </tr>
 </table>
 
-<div><%= f.submit "更新" %></div>
-<%= link_to "削除", @article, method: :delete, data: { confirm: "削除しますか?"} %>
+<div><%= f.submit t('button.update') %></div>
+<%= link_to t('button.delete'), @article, method: :delete, data: { confirm: "削除しますか?"} %>
 <% end %>

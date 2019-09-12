@@ -1,4 +1,4 @@
-<% @page_title = "カンファレンス登録" %>
+<% @page_title = t('page_action.new', name: Conference.model_name.human) %>
 <h2><%= @page_title %></h2>
 
 <%= form_for @conference do |f| %>
@@ -8,8 +8,6 @@
       <th><%= f.label :conference_name %></th>
       <td><%= f.text_field :conference_name %></td>
     </tr>
-    <tr>
-      <th><%= f.submit "登録" %></th>
-    </tr>
   </table>
+  <button><%= t('button.new') %></button>
 <% end %>

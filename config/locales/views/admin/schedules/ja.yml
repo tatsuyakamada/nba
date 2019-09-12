@@ -1,0 +1,16 @@
+ja:
+  base: &base
+  schedule:
+    match_day: 試合日
+    home_team_id: ホームチーム
+    away_team_id: アウェイチーム
+    venue: 開催地
+    home_score: ホームスコア
+    away_score: アウェイスコア
+  schedules:
+    index:
+      <<: *base
+    show:
+      <<: *base
+    edit:
+      <<: *base

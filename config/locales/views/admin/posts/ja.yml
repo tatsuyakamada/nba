@@ -1,0 +1,17 @@
+ja:
+  base: &base
+      posts: ブログ一覧
+      post_show: ブログ詳細
+      title: タイトル
+      body: 本文
+      member_only: 会員限定
+      released_at: 投稿日時
+      author: 投稿者
+      comments: コメント一覧
+      new_comment: コメントする
+  admin:
+    posts:
+      index:
+        <<: *base
+      show:
+        <<: *base

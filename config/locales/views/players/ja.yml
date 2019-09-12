@@ -1,0 +1,29 @@
+ja:
+  base: &base
+    player_image: 選手画像
+    name: 選手名
+    first_name: ファーストネーム
+    last_name: ラストネーム
+    number: 背番号
+    num: No.
+    position: ポジション
+    birthday: 誕生日
+    age: 年齢
+    height: 身長
+    weight: 体重
+    country: 国籍
+    college: 出身
+    affiliation: 所属
+    import: プレイヤーCSV取込
+    info: 基本情報
+    contract_info: 契約情報
+    contract_team: 契約チーム
+    contract_start: 契約開始日
+    contract_period: 契約終了日
+  players:
+    index:
+      <<: *base
+    show:
+      <<: *base
+    edit:
+      <<: *base

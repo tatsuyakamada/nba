@@ -1,0 +1,13 @@
+ja:
+  base: &base
+    conferences: カンファレンス一覧
+    name: カンファレンス
+    division_number: ディビジョン数
+    team_number: チーム数
+  conferences:
+    index:
+      <<: *base
+    show:
+      <<: *base
+    edit:
+      <<: *base

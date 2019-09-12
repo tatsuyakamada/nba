@@ -1,4 +1,4 @@
-<% @page_title = "ポジション登録" %>
+<% @page_title = t('page_action.new', name: Position.model_name.human) %>
 <h1><%= @page_title %></h1>
 
 <%= form_for @position do |f| %>
@@ -9,7 +9,7 @@
     <td><%= f.text_field :position_name %></td>
   </tr>
   <tr>
-    <th><%= f.submit "新規登録" %></th>
+    <th><%= f.submit t('button.new') %></th>
   </tr>
 </table>
 <% end %>

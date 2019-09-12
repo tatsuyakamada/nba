@@ -1,14 +1,19 @@
-<% @page_title = "HC登録" %>
+<% @page_title = t('page_action.new', name: Headcoach.model_name.human) %>
 <h1><%= @page_title %></h1>
 
 <%= form_for @headcoach do |f| %>
 <%= render 'layouts/error_messages', model: f.object %>
 <table>
   <tr>
-    <th><%= f.label :first_name %></th>
-    <td><%= f.text_field :first_name %></td>
-    <th><%= f.label :last_name %></th>
-    <td><%= f.text_field :last_name %></td>
+    <th><%= f.label :headcoach_image %></th>
+    <td><%= f.file_field :headcoach_image %></td>
+  </tr>
+  <tr>
+    <th rowspan="2"><%= t('.name') %></th>
+    <td><%= f.label :first_name %><%= f.text_field :first_name %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :last_name %><%= f.text_field :last_name %></td>
   </tr>
   <tr>
     <th><%= f.label :birthday %></th>
@@ -23,8 +28,6 @@
     <th><%= f.label :college %></th>
     <td><%= f.text_field :college %></td>
   </tr>
-  <tr>
-    <th><%= f.submit "新規登録" %></th>
-  </tr>
 </table>
+<button><%= t('button.new') %></button>
 <% end %>

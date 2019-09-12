@@ -1,4 +1,4 @@
-<% @page_title = "TEAM" %>
+<% @page_title = t('.teams') %>
 <h1><%= @page_title %></h1>
 
 <%= form_for @team do |f| %>
@@ -35,7 +35,7 @@
     <th><%= f.label :owner %></th>
     <td><%= f.text_field :owner %></td>
   </tr>
-  <th><%= f.submit "登録" %></th>
+  <th><%= f.submit t('button.new') %></th>
   </table>
 
 <% end %>

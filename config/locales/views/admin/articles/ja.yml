@@ -1,0 +1,20 @@
+ja:
+  base: &base
+    articles: 記事一覧
+    article: 記事
+    article_image: 記事画像
+    article_show: 記事詳細
+    title: タイトル
+    body: 本文
+    released_at: 掲載開始日
+    expired_at: 掲載終了日
+    member_only: 会員公開
+    author: 投稿者
+  admin:
+    articles:
+      index:
+        <<: *base
+      show:
+        <<: *base
+      edit:
+        <<: *base

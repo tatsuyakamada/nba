@@ -1,53 +1,53 @@
-<% @page_title = "選手登録" %>
+<% @page_title = t('page_action.new', name: Player.model_name.human) %>
 <h1><%= @page_title %></h1>
 
 <%= form_for @player do |f| %>
 <%= render 'layouts/error_messages', model: f.object %>
-<table>
-  <tr>
-    <th><%= f.label :image %></th>
-    <td><%= f.file_field :image %></td>
-  </tr>
-  <tr>
-    <th>選手名</th>
-    <td><%= f.label :first_name %><%= f.text_field :first_name %></td>
-    <td><%= f.label :last_name %><%= f.text_field :last_name %></td>
-  </tr>
-  <tr>
-    <th>背番号</th>
-    <td><%= f.label :number %><%= f.text_field :number %></td>
-  </tr>
-  <tr>
-    <th><%= f.label :position_id %></th>
-    <td><%= f.collection_check_boxes(:position_ids, Position.all, :id, :position_name) %></td>
-  </tr>
-  <tr>
-    <th><%= f.label :birthday %></th>
-    <td><%= f.date_select :birthday, {
-          start_year: 1970,
-          end_year: Time.current.year,
-          default: Time.zone.today - 30.year
-        }
-          %></td>
-  </tr>
-  <tr>
-    <th><%= f.label :height %></th>
-    <td><%= f.text_field :height  %></td>
-  </tr>
-  <tr>
-    <th><%= f.label :weight %></th>
-    <td><%= f.text_field :weight %></td>
-  </tr>
-  <tr>
-    <th><%= f.label :country %></th>
-    <td><%= f.country_select :country, priority_countries: ["US"] %></td>
-  </tr>
-  <tr>
-    <th><%= f.label :college %></th>
-    <td><%= f.text_field :college %></td>
-  </tr>
-  <tr>
-    <th><%= f.submit "新規登録" %></th>
-  </tr>
-</table>
+  <table>
+    <tr>
+      <th><%= f.label :player_image %></th>
+      <td><%= f.file_field :player_image %></td>
+    </tr>
+    <tr>
+    <th rowspan="2"><%= t('.name') %></th>
+      <td><%= f.label :first_name %><%= f.text_field :first_name %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :last_name %><%= f.text_field :last_name %></td>
+    </tr>
+    <tr>
+      <th><%= t('.number') %></th>
+      <td><%= f.label :number %><%= f.text_field :number %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :position %></th>
+      <td><%= f.collection_check_boxes(:position_ids, Position.all, :id, :position_name) %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :birthday %></th>
+      <td><%= f.date_select :birthday, {
+            start_year: 1970,
+            end_year: Time.current.year,
+            default: Time.zone.today - 30.year
+          }
+            %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :height %></th>
+      <td><%= f.text_field :height  %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :weight %></th>
+      <td><%= f.text_field :weight %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :country %></th>
+      <td><%= f.country_select :country, priority_countries: ["US"] %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :college %></th>
+      <td><%= f.text_field :college %></td>
+    </tr>
+  </table>
+  <button><%= t('button.new') %></button>
 <% end %>

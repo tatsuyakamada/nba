@@ -1,0 +1,15 @@
+ja:
+  base: &base
+    headcoaches: ヘッドコーチ一覧
+    name: コーチ名
+    age: 年齢
+    college: 出身
+    birthday: 生年月日
+    info: HC情報
+  headcoaches:
+    index:
+      <<: *base
+    show:
+      <<: *base
+    edit:
+      <<: *base

@@ -1,0 +1,13 @@
+ja:
+  activerecord:
+    attributes:
+      articles:
+        articles: 記事一覧
+        article_image: 記事画像
+        article: 記事
+        title: タイトル
+        body: 本文
+        released_at: 掲載開始日
+        expired_at: 掲載終了日
+        member_only: 会員公開
+        member_id: 投稿者

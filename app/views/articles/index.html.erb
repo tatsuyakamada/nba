@@ -1,16 +1,24 @@
-<% @page_title = "記事一覧" %>
+<% @page_title = t('.articles') %>
 <h1><%= @page_title %></h1>
 
-<button type="button"><%= link_to "新規投稿", :new_article %></button>
-
-<div>
 <% @articles.each do |article| %>
-<div>
-  <h3 class="article_title"><%= link_to article.title, article %></h3>
-  <p class="article_body"><%= simple_format(article.body.truncate(200)) %></p>
-  <div>投稿者  <%= link_to article.member.full_name, article.member %></div>
-  <div>掲載開始日　<%= article.released_at.strftime("%Y年 %m月 %d日 %H時%M分") %></div>
-  <div>掲載終了日　<%= article.expired_at.strftime("%Y年 %m月 %d日 %H時%M分") %></div>
+<div class="article-index">
+  <div class="article-index-image">
+    <%= image_tag article.article_image.to_s, :size => '250x250' %>
+  </div>
+  <div class="article-content">
+    <div class="article-title">
+      <h4><span><%= link_to article.title, article %></span></h4>
+    </div>
+    <p><%= simple_format(article.body.truncate(250)) %></p>
+  </div>
+  <div class="expired">
+    <div><a><%=t('.author') %> <%= link_to article.member.full_name, article.member %></a></div>
+    <a><%=t('.released_at') %> <%= article.released_at.strftime("%Y年 %m月 %d日") %></a>
+    <a><%=t('.expired_at') %> <%= article.expired_at.strftime("%Y年 %m月 %d日") %></a>
+  </div>
+
 </div>
 <% end %>
-</div>
+
+<button type="button" class="top-btn"><%= link_to t('button.top'), "/" %></button>

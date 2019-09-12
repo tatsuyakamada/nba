@@ -1,21 +1,22 @@
-<% @page_title = "HC情報" %>
+<% @page_title = t('.info') %>
 <h1><%= @page_title %></h1>
 
+<%= image_tag @headcoach.headcoach_image.to_s, :size => '200x200' %>
 <table>
   <tr>
-    <th>名前</th>
+    <th><%= t('.name') %></th>
     <td><%= @headcoach.full_name %></td>
   </tr>
   <tr>
-    <th>生年月日</th>
+    <th><%= t('.birthday') %></th>
     <td><%= @headcoach.birthday.strftime("%Y年%m月%d日") %></td>
   </tr>
   <tr>
-    <th>出身</th>
+    <th><%= t('.college') %></th>
     <td><%= @headcoach.college %></td>
   </tr>
 </table>
-  <button type="button"><%= link_to "HC一覧", :headcoaches %></button>
-  <% if logged_in? %>
-    <button type="button"><%= link_to "HC編集", :edit_headcoach %></button>
+  <button><%= link_to t('.headcoaches'), :headcoaches %></button>
+  <% if admin_member %>
+    <button><%= link_to t('button.edit'), :edit_headcoach %></button>
   <% end %>

@@ -1,16 +1,22 @@
-<% @page_title = "カンファレンス情報" %>
+<% @page_title = t('page_action.info', name: Conference.model_name.human) %>
 <h2><%= @page_title %></h2>
 
 <h3><%= @conference.conference_name %></h3>
 
-<% @divisions.each do |division| %>
-  <div>
-    <a><%= division.division_name %></a>
-  </div>
-<% end %>
+<div class="division-list">
+  <% @divisions.each do |division| %>
+    <h4><%= link_to division.division_name, :edit_division %></h4>
+    <div>
+      <% @teams = Team.where("division_id = ?", division.id) %>
+      <% @teams.each do |team| %>
+        <li style="list-style-type: none"> <%= link_to team.team_name, team %></li>
+      <% end %>
+    </div>
+  <% end %>
+</div>
 
-<button type="button"><%= link_to "一覧", :conferences %></button>
+<button type="button"><%= link_to t('page_action.index', name: Conference.model_name.human), :conferences %></button>
 <% if logged_in? %>
-  <button type="button"><%= link_to "ディビジョン登録", :new_division %></button>
-  <button type="button"><%= link_to "編集", :edit_conference %></button>
+  <button type="button"><%= link_to t('page_action.new', name: Division.model_name.human), :new_division %></button>
+  <button type="button"><%= link_to t('button.edit', name: Conference.model_name.human), :edit_conference %></button>
 <% end %>

@@ -1,59 +1,60 @@
-<% @page_title = "プレイヤー詳細" %>
+<% @page_title = t('page_action.info', name: Player.model_name.human) %>
 <h1><%= @page_title %></h1>
 
-<h2>基本情報</h2>
+<h2><%= t('.info') %></h2>
+<%= image_tag @player.player_image.to_s, :size => '200x200' %>
 <table>
   <tr>
-    <th>選手名</th>
+    <th><%= t('.name') %></th>
     <td><%= @player.full_name %></td>
   </tr>
   <tr>
-    <th>背番号</th>
+    <th><%= t('.number') %></th>
     <td><%= @player.number %></td>
   </tr>
   <tr>
-    <th>ポジション</th>
+    <th><%= t('.position') %></th>
     <td><%= @player.positions.sort.map(&:position_name).join('/') %></td>
   </tr>
   <tr>
-    <th>誕生日</th>
+    <th><%= t('.birthday') %></th>
     <td><%= @player.birthday.strftime("%Y年 %m月 %d日") %></td>
   </tr>
   <tr>
-    <th>身長</th>
+    <th><%= t('.height') %></th>
     <td><%= @player.height %></td>
   </tr>
   <tr>
-    <th>体重</th>
+    <th><%= t('.weight') %></th>
     <td><%= @player.weight %></td>
   </tr>
   <tr>
-    <th>出身</th>
+    <th><%= t('.college') %></th>
     <td><%= @player.college %></td>
   </tr>
 </table>
 
-<h2>契約情報</h2>
+<h2><%= t('.contract_info') %></h2>
 <table>
   <tr>
-    <th>No.</th>
-    <th>契約チーム</th>
-    <th>契約開始日</th>
-    <th>契約終了日</th>
+    <th><%= t('.num') %></th>
+    <th><%= t('.contract_team') %></th>
+    <th><%= t('.contract_start') %></th>
+    <th><%= t('.contract_period') %></th>
   </tr>
-<% @team_player.each do |team_player| %>
+<% @team_player.each_with_index do |team_player, idx| %>
   <tr>
-    <td><%= link_to team_player.id, edit_player_team_player_url(@player, team_player) %></td>
-    <td><%= link_to team_player.team.team_name, :team %></td>
+    <td><%= link_to idx + 1, edit_admin_player_team_player_url(@player, team_player) %></td>
+    <td><%= link_to team_player.team.team_name, team_path(team_player.team_id) %></td>
     <td><%= team_player.contract_start %></td>
     <td><%= team_player.contract_period %></td>
   </tr>
 <% end %>
 </table>
 
+<button type="button"><%= link_to t('page_action.index', name: Player.model_name.human), :players %></button>
 
-<button type="button"><%= link_to "選手契約登録", new_player_team_player_url(@player) %></button>
-<button type="button"><%= link_to "選手一覧", :players %></button>
-<% if logged_in? %>
-  <button type="button"><%= link_to "編集", :edit_player %></button>
+<% if admin_member %>
+  <button type="button"><%= link_to t('page_action.new', name: TeamPlayer.model_name.human), new_admin_player_team_player_url(@player) %></button>
+  <button><%= link_to t('button.edit'), :edit_player %></button>
 <% end %>

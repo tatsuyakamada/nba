@@ -1,0 +1,25 @@
+<% @page_title = "ブログ投稿" %>
+<h1><%= @page_title %></h1>
+
+<%= form_for @post do |f| %>
+<%= render 'layouts/error_messages', model: f.object %>
+  <table id="form">
+    <tr>
+      <th><%= f.label :title %></th>
+      <td><%= f.text_area :title, :size=> "60x5" %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :body %></th>
+      <td><%= f.text_area :body, :size=> "60x15" %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :member_only %></th>
+      <td><%= f.check_box :member_only, { :checked => true } %></td>
+    </tr>
+
+    <tr>
+      <%= f.hidden_field :member_id, value: current_member.id %>
+      <th><%= f.submit "投稿" %></th>
+    </tr>
+  </table>
+<% end %>

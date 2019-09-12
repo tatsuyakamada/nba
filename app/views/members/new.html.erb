@@ -1,4 +1,4 @@
-<% @page_title = "会員登録" %>
+<% @page_title = t('page_action.new', name: Member.model_name.human) %>
 <h1><%= @page_title %></h1>
 
 <%= form_for @member do |f| %>
@@ -33,7 +33,7 @@
   </tr>
   <tr>
   <th><%= f.label :sex %></th>
-  <td><%= f.radio_button :sex, 0 %>男<%= f.radio_button :sex, 1 %>女</td>
+  <td><%= f.radio_button :sex, 0 %><%= t('.male') %><%= f.radio_button :sex, 1 %><%= t('.female') %></td>
   </tr>
   <tr>
     <th><%= f.label :password %></th>
@@ -47,8 +47,6 @@
     <th><%= f.label :administrator %></th>
     <td><%= f.check_box :administrator, { :checked => true } %></td>
   </tr>
-  <tr>
-    <th><%= f.submit "新規登録" %></th>
-  </tr>
 </table>
+<button><%= t('button.new') %></button>
 <% end %>
