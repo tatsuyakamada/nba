@@ -102,6 +102,7 @@ ja:
         too_long: が長すぎます。
         confirmation: パスワードと一致しません。
         taken: は使用できません
+        record_invalid: '不正な値です'
   button:
     new: 登録
     edit: 編集
