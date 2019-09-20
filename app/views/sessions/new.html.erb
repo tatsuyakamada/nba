@@ -1,4 +1,4 @@
-<% @page_title = "ログイン" %>
+<% @page_title = 'ログイン' %>
 <h1><%= @page_title %></h1>
 
 <div>
@@ -8,10 +8,10 @@
     <%= form.email_field :email %>
     <%= form.label :password %>
     <%= form.password_field :password %>
-    <%= form.submit "Login" %>
+    <%= form.submit 'Login' %>
     <% end %>
   </div>
   <div>
-    <%= link_to "Signin", :new_member %>
+    <%= link_to 'Signin', :new_member %>
   </div>
 </div>

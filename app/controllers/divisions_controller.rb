@@ -12,7 +12,7 @@ class DivisionsController < ApplicationController
     if @division.save
       redirect_to :conferences
     else
-      render "new"
+      render 'new'
     end
   end
 
@@ -26,7 +26,7 @@ class DivisionsController < ApplicationController
     if @division.update(division_params)
       redirect_to :conferences
     else
-      render "edit"
+      render 'edit'
     end
   end
 
@@ -35,15 +35,16 @@ class DivisionsController < ApplicationController
     if @division.destroy
       redirect_to :conferences
     else
-      render "edit"
+      render 'edit'
     end
   end
 
-  private def division_params
+  private
+
+  def division_params
     params.require(:division).permit(
       :conference_id,
       :division_name
     )
   end
-
 end

@@ -1,13 +1,13 @@
-<% @page_title = "スケジュール" %>
+<% @page_title = t('Schedule.model_name.human') %>
 <h1><%= @page_title %></h1>
 
 <table>
   <tr>
-    <th>試合日</th>
-    <th>ホームチーム</th>
-    <th>スコア</th>
-    <th>アウェイチーム</th>
-    <th>開催地</th>
+    <th><%= t('.match_day') %></th>
+    <th><%= t('.home_team') %></th>
+    <th><%= t('.score') %></th>
+    <th><%= t('.away_team') %></th>
+    <th><%= t('.venue') %></th>
   </tr>
   <% @schedules.each do |schedule| %>
   <tr>

@@ -14,7 +14,7 @@ class PositionsController < ApplicationController
     if @position.save
       redirect_to :positions
     else
-      render "new"
+      render 'new'
     end
   end
 
@@ -31,7 +31,7 @@ class PositionsController < ApplicationController
     if @position.update(position_params)
       redirect_to :positions
     else
-      render "edit"
+      render 'edit'
     end
   end
 
@@ -40,15 +40,13 @@ class PositionsController < ApplicationController
     if @position.destroy
       redirect_to :positions
     else
-      render "edit"
+      render 'edit'
     end
   end
 
-  private def position_params
-    params.require(:position).permit (
-      :position_name
-    )
+  private
+
+  def position_params
+    params.require(:position).permit(:position_name)
   end
-
-
 end

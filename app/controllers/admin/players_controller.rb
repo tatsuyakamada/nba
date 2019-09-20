@@ -1,5 +1,5 @@
 class Admin::PlayersController < ApplicationController
-    before_action :admin_member
+  before_action :admin_member
 
   def index
     @players = Player.all
@@ -16,13 +16,11 @@ class Admin::PlayersController < ApplicationController
     if @player.save
       redirect_to @player
     else
-      render "new"
+      render 'new'
     end
   end
 
-  def player_import
-
-  end
+  def player_import; end
 
   def edit
     @player = Player.find(params[:id])
@@ -41,7 +39,7 @@ class Admin::PlayersController < ApplicationController
     if @player.save
       redirect_to @player
     else
-      redirect_to "edit"
+      redirect_to 'edit'
     end
   end
 
@@ -50,11 +48,13 @@ class Admin::PlayersController < ApplicationController
     if @player.destroy
       redirect_to :players
     else
-      render "edit"
+      render 'edit'
     end
   end
 
-  private def player_params
+  private
+
+  def player_params
     params.require(:player).permit(
       :player_image,
       :first_name,
@@ -67,5 +67,4 @@ class Admin::PlayersController < ApplicationController
       position_ids: []
     )
   end
-
 end

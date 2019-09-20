@@ -1,5 +1,4 @@
 class PlayersController < ApplicationController
-
   def index
     @players = Player.all
   end
@@ -15,7 +14,7 @@ class PlayersController < ApplicationController
     if @player.save
       redirect_to @player
     else
-      render "new"
+      render 'new'
     end
   end
 
@@ -36,7 +35,7 @@ class PlayersController < ApplicationController
     if @player.save
       redirect_to @player
     else
-      redirect_to "edit"
+      redirect_to 'edit'
     end
   end
 
@@ -45,11 +44,13 @@ class PlayersController < ApplicationController
     if @player.destroy
       redirect_to :players
     else
-      render "edit"
+      render 'edit'
     end
   end
 
-  private def player_params
+  private
+
+  def player_params
     params.require(:player).permit(
       :player_image,
       :first_name,
@@ -62,5 +63,4 @@ class PlayersController < ApplicationController
       position_ids: []
     )
   end
-
 end

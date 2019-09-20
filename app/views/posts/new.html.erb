@@ -1,4 +1,4 @@
-<% @page_title = "ブログ投稿" %>
+<% @page_title = t('page_action.new', name: Post.model_name.human) %>
 <h1><%= @page_title %></h1>
 
 <%= form_for @post do |f| %>
@@ -18,5 +18,5 @@
     </tr>
   </table>
   <%= f.hidden_field :member_id, value: current_member.id %>
-  <button><%= "投稿" %></button>
+  <button><%= t('button.new') %></button>
 <% end %>

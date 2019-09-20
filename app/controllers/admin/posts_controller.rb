@@ -2,11 +2,11 @@ class Admin::PostsController < ApplicationController
   before_action :admin_member
 
   def index
-    if logged_in?
-      @posts = Post.all.order(created_at: :desc)
-    else
-      @posts = Post.open_post.order(created_at: :desc)
-    end
+    @posts = if logged_in?
+               Post.all.order(created_at: :desc)
+             else
+               Post.open_post.order(created_at: :desc)
+             end
   end
 
   def new
@@ -16,10 +16,10 @@ class Admin::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      flash[:notice] = "ブログを投稿しました！"
+      flash[:notice] = 'ブログを投稿しました！'
       redirect_to :posts
     else
-      render "new"
+      render 'new'
     end
   end
 
@@ -38,10 +38,10 @@ class Admin::PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.update(post_params)
     if @post.save
-      flash[:notice] = "ブログを更新しました！"
+      flash[:notice] = 'ブログを更新しました！'
       redirect_to @post
     else
-      render "edit"
+      render 'edit'
     end
   end
 
@@ -50,22 +50,23 @@ class Admin::PostsController < ApplicationController
     if @post.destroy
       redirect_to :posts
     else
-      render "edit"
+      render 'edit'
     end
   end
 
-  private def post_params
+  private
+
+  def post_params
     params.require(:post).permit(
       :title,
       :body,
       :image,
       :member_only,
       :member_id
-      )
+    )
   end
 
   def search
-    @posts = Post.where("member_id = params[:id] ")
+    @posts = Post.where('member_id = params[:id]')
   end
-
 end

@@ -3,42 +3,40 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   get 'logout' => 'sessions#logout'
   get 'admin' => 'admin#index'
-  root "top#index"
+  root 'top#index'
 
-  #管理者用メニュー
-    namespace :admin do
-      resources :articles
-      resources :members
-      resources :posts do
-        resources :comments, only: [:create, :destroy]
-      end
-      resources :players do
-        resources :team_players
-        collection do
-          get 'player_import'
-        end
-      end
-      resources :schedules
-      resources :teams
+  # admin_menu
+  namespace :admin do
+    resources :articles
+    resources :members
+    resources :posts do
+      resources :comments, only: %i[create destroy]
     end
-    resources :conferences
-    resources :divisions
-    resources :positions
+    resources :players do
+      resources :team_players
+      collection do
+        get 'player_import'
+      end
+    end
+    resources :schedules
+    resources :teams
+  end
+  resources :conferences
+  resources :divisions
+  resources :positions
 
-
-  #一般用メニュー
-  resources :articles, only: [:index, :show]
+  # general_menu
+  resources :articles, only: %i[index show]
   resources :members do
     resources :posts, only: [:index]
   end
   resources :posts do
-    resources :comments, only: [:create, :destroy]
+    resources :comments, only: %i[create destroy]
   end
   resources :players do
-    resources :team_players, only:[:show]
+    resources :team_players, only: [:show]
   end
   resources :headcoaches
-  resources :schedules, only:[:index]
+  resources :schedules, only: [:index]
   resources :teams
-
 end

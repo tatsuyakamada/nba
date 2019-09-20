@@ -1,5 +1,4 @@
 class TeamPlayersController < ApplicationController
-
   def new
     @player = Player.find(params[:player_id])
     @team_player = TeamPlayer.new
@@ -13,7 +12,7 @@ class TeamPlayersController < ApplicationController
     if @team_player.save
       redirect_to @player
     else
-      render "new"
+      render 'new'
     end
   end
 
@@ -31,17 +30,18 @@ class TeamPlayersController < ApplicationController
     if @team_player.save
       redirect_to "/players/#{@team_player.player_id}"
     else
-      render "edit"
+      render 'edit'
     end
   end
-  private def team_player_params
+
+  private
+
+  def team_player_params
     params.require(:team_player).permit(
       :team_id,
       :player_id,
       :contract_start,
-      :contract_period,
+      :contract_period
     )
-
   end
-
 end

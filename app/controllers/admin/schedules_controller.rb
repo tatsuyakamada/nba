@@ -15,7 +15,7 @@ class Admin::SchedulesController < ApplicationController
     if @schedule.save
       redirect_to :admin_schedules
     else
-      render "new"
+      render 'new'
     end
   end
 
@@ -33,15 +33,15 @@ class Admin::SchedulesController < ApplicationController
     if @schedule.save
       redirect_to :admin_schedules
     else
-      render "edit"
+      render 'edit'
     end
   end
 
-  def destroy
+  def destroy; end
 
-  end
+  private
 
-  private def schedule_params
+  def schedule_params
     params.require(:schedule).permit(
       :match_day,
       :venue,
@@ -51,6 +51,4 @@ class Admin::SchedulesController < ApplicationController
       :away_team_id
     )
   end
-
-
 end

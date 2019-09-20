@@ -7,7 +7,7 @@
   <% @divisions.each do |division| %>
     <h4><%= link_to division.division_name, :edit_division %></h4>
     <div>
-      <% @teams = Team.where("division_id = ?", division.id) %>
+      <% @teams = Team.where('division_id = ?', division.id) %>
       <% @teams.each do |team| %>
         <li style="list-style-type: none"> <%= link_to team.team_name, team %></li>
       <% end %>

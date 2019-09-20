@@ -17,7 +17,7 @@ class Admin::TeamsController < ApplicationController
     if @team.save
       redirect_to @team
     else
-      render "new"
+      render 'new'
     end
   end
 
@@ -28,7 +28,7 @@ class Admin::TeamsController < ApplicationController
 
   def show
     @team = Team.find(params[:id])
-    @schedules = Schedule.where("home_team_id = ?", params[:id]).or(Schedule.where("away_team_id = ?", params[:id] ))
+    @schedules = Schedule.where('home_team_id = ?', params[:id]).or(Schedule.where('away_team_id = ?', params[:id]))
   end
 
   def update
@@ -37,7 +37,7 @@ class Admin::TeamsController < ApplicationController
     if @team.save
       redirect_to @team
     else
-      render "edit"
+      render 'edit'
     end
   end
 
@@ -46,12 +46,13 @@ class Admin::TeamsController < ApplicationController
     if @team.destroy
       redirect_to :teams
     else
-      render "edit"
+      render 'edit'
     end
   end
 
+  private
 
-  private def team_params
+  def team_params
     params.require(:team).permit(
       :team_image,
       :division_id,

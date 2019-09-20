@@ -1,5 +1,4 @@
 class HeadcoachesController < ApplicationController
-
   def index
     @headcoaches = Headcoach.all
   end
@@ -13,7 +12,7 @@ class HeadcoachesController < ApplicationController
     if @headcoach.save
       redirect_to @headcoach
     else
-      render "new"
+      render 'new'
     end
   end
 
@@ -31,7 +30,7 @@ class HeadcoachesController < ApplicationController
     if @headcoach.save
       redirect_to @headcoach
     else
-      render "edit"
+      render 'edit'
     end
   end
 
@@ -40,11 +39,13 @@ class HeadcoachesController < ApplicationController
     if @headcoach.destroy
       redirect_to :headcoaches
     else
-      render "edit"
+      render 'edit'
     end
   end
 
-  private def headcoach_params
+  private
+
+  def headcoach_params
     params.require(:headcoach).permit(
       :headcoach_image,
       :first_name,
@@ -52,7 +53,5 @@ class HeadcoachesController < ApplicationController
       :birthday,
       :college
     )
-
   end
-
 end

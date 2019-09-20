@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-
   def new
     @comment = Comment.new
   end
@@ -18,20 +17,20 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
     if @comment.destroy
-      flash[:notice] = "コメントを削除しました。"
+      flash[:notice] = 'コメントを削除しました。'
       redirect_to @post
     else
-      render "/posts/show"
+      render '/posts/show'
     end
   end
 
-  private def comment_params
+  private
+
+  def comment_params
     params.require(:comment).permit(
       :body,
       :post_id,
       :member_id
     )
   end
-
-
 end

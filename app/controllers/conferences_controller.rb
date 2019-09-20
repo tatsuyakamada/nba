@@ -14,7 +14,7 @@ class ConferencesController < ApplicationController
     if @conference.save
       redirect_to :conferences
     else
-      render "new"
+      render 'new'
     end
   end
 
@@ -33,7 +33,7 @@ class ConferencesController < ApplicationController
     if @conference.save
       redirect_to @conference
     else
-      render "edit"
+      render 'edit'
     end
   end
 
@@ -42,11 +42,13 @@ class ConferencesController < ApplicationController
     if @conference.destroy
       redirect_to :conferences
     else
-      render "edit"
+      render 'edit'
     end
   end
 
-  private def conference_params
+  private
+
+  def conference_params
     params.require(:conference).permit(
       :conference_name
     )

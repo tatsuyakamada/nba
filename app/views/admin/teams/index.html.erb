@@ -3,10 +3,10 @@
 
 <% @conferences.each do |conference| %>
   <h3 id="conference_name"><%= conference.conference_name %></h3>
-  <% @divisions = Division.where("conference_id = ?", conference.id) %>
+  <% @divisions = Division.where('conference_id = ?', conference.id) %>
   <% @divisions.each do |division| %>
     <h4 id="division_name"><%= division.division_name %></h4>
-    <% @teams = Team.where("division_id = ?", division.id) %>
+    <% @teams = Team.where('division_id = ?', division.id) %>
     <div class="team-index">
       <table>
         <tr>

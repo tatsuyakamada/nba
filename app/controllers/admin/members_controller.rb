@@ -14,7 +14,7 @@ class Admin::MembersController < ApplicationController
     if @member.save
       redirect_to :members
     else
-      render "new"
+      render 'new'
     end
   end
 
@@ -25,7 +25,7 @@ class Admin::MembersController < ApplicationController
   def show
     @member = Member.find(params[:id])
     id = @member.id
-    @posts = Post.where("member_id == ?", id ).order(created_at: :desc)
+    @posts = Post.where('member_id == ?', id).order(created_at: :desc)
   end
 
   def update
@@ -34,21 +34,23 @@ class Admin::MembersController < ApplicationController
     if @member.save
       redirect_to @member
     else
-      render "edit"
+      render 'edit'
     end
   end
 
   def destroy
     @member = Member.find(params[:id])
     if @member.destroy
-      flash[:notice] = "削除しました。"
+      flash[:notice] = '削除しました。'
       redirect_to :members
     else
-      render "edit"
+      render 'edit'
     end
   end
 
-  private def member_params
+  private
+
+  def member_params
     params.require(:member).permit(
       :profile_image,
       :last_name,
@@ -61,7 +63,6 @@ class Admin::MembersController < ApplicationController
       :administrator,
       :password,
       :password_confirmation
-      )
+    )
   end
-
 end

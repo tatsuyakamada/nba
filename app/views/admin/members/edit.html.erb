@@ -42,6 +42,6 @@
   </table>
   <% if @member.administrator? %>
     <button><%= f.submit t('button.update'), { method: :post}  %></button>
-    <button><%= link_to t('button.delete'), @member, method: :delete, data: { confirm: "削除しますか?"} %></button>
+    <button><%= link_to t('button.delete'), @member, method: :delete, data: { confirm: '削除しますか?'} %></button>
   <% end %>
 <% end %>

@@ -12,10 +12,10 @@ class Admin::ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     if @article.save
-      flash[:notice] = "記事を投稿しました！"
+      flash[:notice] = '記事を投稿しました！'
       redirect_to :admin_articles
     else
-      render "new"
+      render 'new'
     end
   end
 
@@ -32,10 +32,10 @@ class Admin::ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.update(article_params)
     if @article.save
-      flash[:notice] = "更新しました。"
+      flash[:notice] = '更新しました。'
       redirect_to @article
     else
-      render "edit"
+      render 'edit'
     end
   end
 
@@ -44,11 +44,13 @@ class Admin::ArticlesController < ApplicationController
     if @article.destroy
       redirect_to :articles
     else
-      render "edit"
+      render 'edit'
     end
   end
 
-  private def article_params
+  private
+
+  def article_params
     params.require(:article).permit(
       :article_image,
       :title,
@@ -57,11 +59,10 @@ class Admin::ArticlesController < ApplicationController
       :expired_at,
       :member_only,
       :member_id
-      )
+    )
   end
 
-  private def administrator
+  def administrator
     @member.administrator == true
   end
-
 end

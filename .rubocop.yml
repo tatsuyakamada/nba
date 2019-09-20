@@ -1,0 +1,74 @@
+# Common configuration.
+
+AllCops:
+  RubyInterpreters:
+    - ruby
+    - macruby
+    - rake
+    - jruby
+    - rbx
+  # Include common Ruby source files.
+  Include:
+    - '**/*.rb'
+    - '**/*.builder'
+    - '**/*.gemfile'
+    - '**/*.gemspec'
+    - '**/*.jb'
+    - '**/*.jbuilder'
+    - '**/*.podspec'
+    - '**/*.rake'
+    - '**/*.rbuild'
+    - '**/*.ruby'
+    - '**/*.spec'
+    - '**/Rakefile'
+  Exclude:
+    - 'bin/*'
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - '.git/**/*'
+    - db/schema.rb
+    - db/migrate/*
+    - spec/spec_helper.rb
+    - spec/rails_helper.rb
+    - vendor/bundle/**/*
+    - vendor/bundle/**/.irbrc
+    - config/puma.rb
+    - app/channels/application_cable/*
+
+# 日本語でのコメントを許可
+AsciiComments:
+  Enabled: false
+
+# 複数行での「lambda」で「->」による省略記法を許可
+Lambda:
+  Enabled: false
+
+# クラスにコメントを残さない
+Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+ClassAndModuleChildren:
+  EnforcedStyle: compact
+
+Layout/SpaceBeforeSemicolon:
+  Description: 'No spaces before semicolons.'
+  Enabled: true
+
+Metrics/BlockLength:
+  Exclude:
+    - 'app/decorators/car_decorator.rb'
+    - 'config/**/*'
+    - 'spec/**/*'
+    - 'lib/**/*'
+    - 'app/api/**/*'
+
+Metrics/LineLength:
+  Max: 192
+  Exclude:
+    - 'app/models/material.rb'
+
+Metrics/MethodLength:
+  Max: 30

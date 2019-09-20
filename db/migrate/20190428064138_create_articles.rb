@@ -1,11 +1,11 @@
 class CreateArticles < ActiveRecord::Migration[5.2]
   def change
     create_table :articles do |t|
-      t.string :title, null: false                            #タイトル
-      t.text :body, null: false                               #本文
-      t.datetime :released_at, null: false                    #掲載開始日
-      t.datetime :expired_at                                  #掲載終了日
-      t.boolean :member_only, default: false, null: false     #会員限定
+      t.string :title, null: false
+      t.text :body, null: false
+      t.datetime :released_at, null: false
+      t.datetime :expired_at;
+      t.boolean :member_only, default: false, null: false
 
       t.timestamps
     end

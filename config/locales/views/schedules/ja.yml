@@ -11,10 +11,11 @@ ja:
     home_score: ホームスコア
     away_score: アウェイスコア
     edit: 編集
-  schedules:
-    index:
-      <<: *base
-    show:
-      <<: *base
-    edit:
-      <<: *base
+  admin:
+    schedules:
+      index:
+        <<: *base
+      show:
+        <<: *base
+      edit:
+        <<: *base
