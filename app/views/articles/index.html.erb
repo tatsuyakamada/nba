@@ -1,7 +1,7 @@
 <% @page_title = t('.articles') %>
 <h1><%= @page_title %></h1>
 
-<% @articles.each do |article| %>
+<% @articles&.each do |article| %>
 <div class="article-index">
   <div class="article-index-image">
     <%= image_tag article.article_image.to_s, :size => '250x250' %>

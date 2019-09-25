@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
     @articles = if logged_in?
                   Article.member_article.order(released_at: :desc)
                 else
-                  Article.open_article.order(released_at: :desc)
+                  Article.public_article.order(released_at: :desc)
                 end
   end
 

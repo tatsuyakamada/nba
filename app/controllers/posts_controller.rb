@@ -1,10 +1,10 @@
 class PostsController < ApplicationController
   def index
-    @post = if logged_in?
-              Post.all.order(created_at: :desc)
-            else
-              Post.open_post.order(created_at: :desc)
-            end
+    @posts = if logged_in?
+               Post.all.order(created_at: :desc)
+             else
+               Post.open_post.order(created_at: :desc)
+             end
   end
 
   def new

@@ -1,0 +1,6 @@
+ja:
+  base: &base
+    email: e-mail
+    password: パスワード
+  login:
+    <<: *base

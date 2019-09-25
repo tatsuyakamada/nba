@@ -4,12 +4,8 @@
 
 <div id="news_topics">
   <h2><%= t('.new_articles') %></h2>
-    <% if logged_in? %>
-      <% articles = Article.member_article.order(released_at: :desc).limit(5) %>
-    <% else %>
-      <% articles = Article.open_article.order(released_at: :desc).limit(5) %>
-    <% end %>
-    <% articles.each do |article| %>
+    <% @articles&.limit(5) %>
+    <% @articles&.each do |article| %>
       <div class="news">
         <h4><%= link_to article.title.truncate(30), article %></h4>
         <a class="expired-day"><%= t('.released_at') %></a><a class="post-date"> <%= article.released_at.strftime("%Y年%m月%d日") %></a>
